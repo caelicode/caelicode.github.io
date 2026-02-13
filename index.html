@@ -5,6 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CaeliCode Platform — Zero-Cost Platform Engineering</title>
   <meta name="description" content="A GitOps-native platform engineering toolkit where governance, security, monitoring, incident management, and notifications are driven by YAML config, orchestrated by GitHub Actions, and cost nothing to run.">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://platform.caelicode.com/">
+  <meta property="og:title" content="CaeliCode Platform — Zero-Cost Platform Engineering">
+  <meta property="og:description" content="Six integrated tools. GitOps-native. Config-driven. $0/month. Org governance, secret scanning, monitoring, incident management, and notifications — all orchestrated by GitHub Actions.">
+  <meta property="og:image" content="https://platform.caelicode.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CaeliCode Platform — Zero-Cost Platform Engineering">
+  <meta name="twitter:description" content="Six integrated tools. GitOps-native. Config-driven. $0/month.">
+
+  <!-- Favicon (inline SVG as data URI) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%233b82f6'/><text x='16' y='22' font-size='18' font-weight='800' fill='white' text-anchor='middle' font-family='system-ui'>C</text></svg>">
+
+  <!-- Inter font for polish -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg: #0a0e17;
@@ -35,19 +54,37 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
+
+    /* ── ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* Stagger children */
+    .stagger-children .reveal { transition-delay: calc(var(--i, 0) * 0.08s); }
 
     /* ── NAV ── */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 100;
       background: rgba(10, 14, 23, 0.85);
       backdrop-filter: blur(16px);
@@ -56,21 +93,10 @@
     }
     nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.3); }
     .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      height: 64px; display: flex; align-items: center; justify-content: space-between;
     }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--text);
-    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
     .logo-mark {
       width: 32px; height: 32px;
       background: linear-gradient(135deg, var(--accent), var(--purple));
@@ -81,32 +107,14 @@
     .logo-text { font-weight: 700; font-size: 18px; letter-spacing: -0.02em; }
     .logo-text span { color: var(--text-muted); font-weight: 400; }
     .nav-links { display: flex; gap: 28px; align-items: center; }
-    .nav-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
+    .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
     .nav-cta {
-      background: var(--accent) !important;
-      color: #fff !important;
-      padding: 8px 18px;
-      border-radius: 8px;
-      font-size: 13px !important;
-      transition: opacity 0.2s !important;
+      background: var(--accent) !important; color: #fff !important;
+      padding: 8px 18px; border-radius: 8px; font-size: 13px !important; transition: opacity 0.2s !important;
     }
     .nav-cta:hover { opacity: 0.9; }
-
-    .mobile-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--text);
-      font-size: 24px;
-      cursor: pointer;
-    }
+    .mobile-toggle { display: none; background: none; border: none; color: var(--text); font-size: 24px; cursor: pointer; }
 
     /* ── HERO ── */
     .hero {
@@ -115,300 +123,272 @@
       position: relative;
       overflow: hidden;
     }
-    .hero::before {
-      content: '';
+    /* Animated gradient orb */
+    .hero-orb {
       position: absolute;
-      top: -200px;
-      left: 50%;
+      top: -300px; left: 50%;
       transform: translateX(-50%);
-      width: 800px;
-      height: 800px;
-      background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
+      width: 900px; height: 900px;
+      background: radial-gradient(ellipse at center,
+        rgba(59, 130, 246, 0.12) 0%,
+        rgba(139, 92, 246, 0.08) 30%,
+        rgba(6, 182, 212, 0.04) 50%,
+        transparent 70%
+      );
+      animation: orbFloat 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes orbFloat {
+      0%, 100% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.08); }
+    }
+    /* Grid background */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 60% 60% at 50% 40%, black, transparent);
+      -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 40%, black, transparent);
       pointer-events: none;
     }
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 6px 16px 6px 8px;
-      font-size: 13px;
-      color: var(--text-secondary);
-      margin-bottom: 28px;
-      position: relative;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 999px; padding: 6px 16px 6px 8px;
+      font-size: 13px; color: var(--text-secondary);
+      margin-bottom: 28px; position: relative;
     }
     .hero-badge-dot {
-      width: 8px; height: 8px;
-      background: var(--green);
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
-    }
-    .hero h1 {
-      font-size: clamp(2.4rem, 5.5vw, 4rem);
-      font-weight: 800;
-      letter-spacing: -0.035em;
-      line-height: 1.1;
-      margin-bottom: 20px;
+      width: 8px; height: 8px; background: var(--green);
+      border-radius: 50%; animation: pulse 2s infinite;
       position: relative;
+    }
+    .hero-badge-dot::after {
+      content: '';
+      position: absolute; inset: -3px;
+      border-radius: 50%;
+      background: var(--green);
+      opacity: 0;
+      animation: ping 2s infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    @keyframes ping { 0% { transform: scale(1); opacity: 0.4; } 100% { transform: scale(2.5); opacity: 0; } }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+      font-weight: 800; letter-spacing: -0.04em;
+      line-height: 1.08; margin-bottom: 20px; position: relative;
     }
     .hero h1 .gradient {
-      background: linear-gradient(135deg, var(--accent), var(--purple), var(--cyan));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 50%, var(--cyan) 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 6s ease infinite;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
     .hero p {
-      font-size: 1.15rem;
-      color: var(--text-secondary);
-      max-width: 640px;
-      margin: 0 auto 36px;
-      line-height: 1.7;
-      position: relative;
+      font-size: 1.15rem; color: var(--text-secondary);
+      max-width: 640px; margin: 0 auto 36px; line-height: 1.7; position: relative;
     }
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-      position: relative;
-    }
+    .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 28px;
-      border-radius: 10px;
-      font-size: 15px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s;
-      cursor: pointer;
-      border: none;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: 10px; font-size: 15px;
+      font-weight: 600; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
     }
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-    .btn-primary:hover { background: #2563eb; }
-    .btn-secondary {
-      background: var(--bg-card);
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-    .btn-secondary:hover { background: var(--bg-card-hover); border-color: var(--text-muted); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #2563eb; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(59,130,246,0.3); }
+    .btn-secondary { background: var(--bg-card); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--bg-card-hover); border-color: var(--text-muted); transform: translateY(-1px); }
 
     /* ── STATS ── */
-    .stats {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px 80px;
-    }
+    .stats { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; }
     .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+      background: var(--border); border-radius: var(--radius); overflow: hidden;
     }
-    .stat {
-      background: var(--bg-card);
-      padding: 32px 24px;
+    .stat { background: var(--bg-card); padding: 32px 24px; text-align: center; }
+    .stat-value { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 4px; }
+    .stat-value.accent { color: var(--accent); }
+    .stat-value.green { color: var(--green); }
+    .stat-label { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* ── TECH STACK STRIP ── */
+    .tech-strip {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 24px 80px;
       text-align: center;
     }
-    .stat-value {
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      margin-bottom: 4px;
+    .tech-strip-label {
+      font-size: 12px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 24px;
     }
-    .stat-label {
-      font-size: 13px;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
+    .tech-logos {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 12px;
     }
+    .tech-logo {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 10px 18px;
+      font-size: 13px; font-weight: 500; color: var(--text-secondary);
+      transition: all 0.2s;
+    }
+    .tech-logo:hover {
+      border-color: var(--text-muted);
+      color: var(--text);
+      background: var(--bg-card-hover);
+    }
+    .tech-logo svg { flex-shrink: 0; }
 
     /* ── SECTION ── */
     section { padding: 80px 24px; }
     .section-inner { max-width: 1200px; margin: 0 auto; }
     .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      margin-bottom: 16px;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--accent); margin-bottom: 16px;
     }
     .section-title {
       font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      margin-bottom: 16px;
-      line-height: 1.15;
+      font-weight: 800; letter-spacing: -0.03em;
+      margin-bottom: 16px; line-height: 1.15;
     }
     .section-desc {
-      font-size: 1.05rem;
-      color: var(--text-secondary);
-      max-width: 600px;
-      margin-bottom: 48px;
-      line-height: 1.7;
+      font-size: 1.05rem; color: var(--text-secondary);
+      max-width: 600px; margin-bottom: 48px; line-height: 1.7;
     }
 
     /* ── ARCHITECTURE ── */
     .arch-container {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 48px;
-      position: relative;
-      overflow: hidden;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 48px; position: relative; overflow: hidden;
     }
     .arch-container::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent);
     }
-
-    /* Architecture SVG diagram */
-    .arch-svg {
-      width: 100%;
-      max-width: 960px;
-      margin: 0 auto;
-      display: block;
-    }
-
-    .arch-flow {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .arch-layer {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
+    .arch-flow { display: grid; grid-template-columns: 1fr; gap: 0; max-width: 800px; margin: 0 auto; }
+    .arch-layer { display: flex; align-items: center; gap: 16px; padding: 16px 0; }
     .arch-layer-label {
-      flex: 0 0 140px;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      text-align: right;
+      flex: 0 0 140px; font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--text-muted); text-align: right;
     }
-
-    .arch-layer-nodes {
-      flex: 1;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
+    .arch-layer-nodes { flex: 1; display: flex; gap: 12px; flex-wrap: wrap; }
     .arch-node {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 10px 16px;
-      font-size: 13px;
-      font-weight: 600;
-      transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 10px 16px;
+      font-size: 13px; font-weight: 600; transition: all 0.25s;
     }
-    .arch-node:hover {
-      border-color: var(--accent);
-      background: var(--accent-glow);
-    }
-
+    .arch-node:hover { border-color: var(--accent); background: var(--accent-glow); transform: translateY(-1px); }
     .arch-node-icon {
-      width: 20px;
-      height: 20px;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      flex-shrink: 0;
+      width: 20px; height: 20px; border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; flex-shrink: 0;
     }
 
+    /* Animated flow connector */
     .arch-connector {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      padding: 4px 0;
+      width: 100%; display: flex; justify-content: center;
+      padding: 2px 0; position: relative;
     }
-    .arch-connector svg { opacity: 0.3; }
+    .arch-connector-line {
+      width: 2px; height: 28px;
+      background: linear-gradient(to bottom, var(--border), var(--accent), var(--border));
+      position: relative; overflow: hidden; border-radius: 1px;
+    }
+    .arch-connector-line::after {
+      content: '';
+      position: absolute; top: -10px; left: 0;
+      width: 2px; height: 10px;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+      animation: flowDown 2s linear infinite;
+    }
+    @keyframes flowDown {
+      0% { top: -10px; opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { top: 28px; opacity: 0; }
+    }
+    .arch-connector-line.d2::after { animation-delay: 0.5s; }
+    .arch-connector-line.d3::after { animation-delay: 1s; }
+
+    /* ── CODE PREVIEW ── */
+    .code-preview {
+      background: #0d1117;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 32px;
+    }
+    .code-header {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid var(--border);
+    }
+    .code-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .code-dot.r { background: #ff5f57; }
+    .code-dot.y { background: #febc2e; }
+    .code-dot.g { background: #28c840; }
+    .code-filename {
+      font-size: 12px; color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace; margin-left: 8px;
+    }
+    .code-body {
+      padding: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px; line-height: 1.7;
+      color: var(--text-secondary);
+      overflow-x: auto;
+    }
+    .code-body .kw { color: #ff7b72; }
+    .code-body .str { color: #a5d6ff; }
+    .code-body .cm { color: #8b949e; }
+    .code-body .key { color: #79c0ff; }
+    .code-body .val { color: #a5d6ff; }
+    .code-body .bool { color: #ff7b72; }
+    .code-body .num { color: #79c0ff; }
 
     /* ── TOOLS GRID ── */
     .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 20px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px;
     }
     .tool-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      transition: all 0.25s;
-      position: relative;
-      overflow: hidden;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 32px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative; overflow: hidden;
     }
     .tool-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      border-radius: var(--radius) var(--radius) 0 0;
-      opacity: 0;
-      transition: opacity 0.25s;
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 3px; border-radius: var(--radius) var(--radius) 0 0;
+      opacity: 0; transition: opacity 0.25s;
     }
     .tool-card:hover {
-      border-color: var(--text-muted);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      border-color: var(--text-muted); transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
     }
     .tool-card:hover::before { opacity: 1; }
-
     .tool-card.green::before { background: var(--green); }
     .tool-card.amber::before { background: var(--amber); }
     .tool-card.red::before { background: var(--red); }
     .tool-card.purple::before { background: var(--purple); }
     .tool-card.cyan::before { background: var(--cyan); }
     .tool-card.rose::before { background: var(--rose); }
-
-    .tool-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
+    .tool-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; }
     .tool-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      flex-shrink: 0;
+      width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
     }
     .tool-icon.green { background: var(--green-bg); color: var(--green); }
     .tool-icon.amber { background: var(--amber-bg); color: var(--amber); }
@@ -416,197 +396,115 @@
     .tool-icon.purple { background: var(--purple-bg); color: var(--purple); }
     .tool-icon.cyan { background: var(--cyan-bg); color: var(--cyan); }
     .tool-icon.rose { background: var(--rose-bg); color: var(--rose); }
-
     .tool-badge {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--text-muted);
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.06em; padding: 4px 10px; border-radius: 999px;
+      border: 1px solid var(--border); color: var(--text-muted);
     }
     .tool-badge.public { color: var(--green); border-color: rgba(16, 185, 129, 0.3); }
-
-    .tool-name {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
-    }
-    .tool-desc {
-      color: var(--text-secondary);
-      font-size: 14px;
-      line-height: 1.65;
-      margin-bottom: 20px;
-    }
-    .tool-stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+    .tool-name { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.01em; }
+    .tool-desc { color: var(--text-secondary); font-size: 14px; line-height: 1.65; margin-bottom: 20px; }
+    .tool-stats { display: flex; flex-wrap: wrap; gap: 8px; }
     .tool-stat {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      color: var(--text-muted);
-      background: var(--bg);
-      padding: 5px 10px;
-      border-radius: 6px;
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; color: var(--text-muted);
+      background: var(--bg); padding: 5px 10px; border-radius: 6px;
     }
     .tool-stat svg { flex-shrink: 0; }
 
     /* ── HOW IT WORKS ── */
     .flow-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      counter-reset: step;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1px; background: var(--border); border-radius: var(--radius);
+      overflow: hidden; counter-reset: step;
     }
     .flow-step {
-      background: var(--bg-card);
-      padding: 32px 24px;
-      position: relative;
-      counter-increment: step;
+      background: var(--bg-card); padding: 32px 24px;
+      position: relative; counter-increment: step;
     }
     .flow-step::before {
       content: counter(step);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      background: var(--accent-glow);
-      border: 1px solid var(--accent);
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 14px;
+      display: flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px;
+      background: var(--accent-glow); border: 1px solid var(--accent);
+      border-radius: 8px; font-size: 13px; font-weight: 700;
+      color: var(--accent); margin-bottom: 14px;
     }
-    .flow-step h4 {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .flow-step p {
-      font-size: 13px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
+    .flow-step h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .flow-step p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
 
     /* ── COST COMPARISON ── */
+    .cost-table-wrap { overflow-x: auto; }
     .cost-table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
+      width: 100%; border-collapse: separate; border-spacing: 0;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden; min-width: 600px;
     }
     .cost-table th {
-      background: var(--bg);
-      padding: 14px 20px;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-      text-align: left;
-      border-bottom: 1px solid var(--border);
+      background: var(--bg); padding: 14px 20px; font-size: 12px;
+      font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--text-muted); text-align: left; border-bottom: 1px solid var(--border);
     }
-    .cost-table td {
-      padding: 14px 20px;
-      font-size: 14px;
-      border-bottom: 1px solid var(--border);
-    }
+    .cost-table td { padding: 14px 20px; font-size: 14px; border-bottom: 1px solid var(--border); }
     .cost-table tr:last-child td { border-bottom: none; }
-    .cost-table .commercial {
-      color: var(--text-muted);
-      text-decoration: line-through;
-      font-style: italic;
+    .cost-table .commercial { color: var(--text-muted); text-decoration: line-through; font-style: italic; }
+    .cost-table .free { color: var(--green); font-weight: 700; }
+    .cost-table .total-row td { border-top: 2px solid var(--border); font-weight: 700; font-size: 15px; }
+    .cost-table .total-row .commercial { font-size: 15px; }
+
+    /* ── TESTIMONIAL ── */
+    .testimonial {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 40px;
+      max-width: 700px; margin: 0 auto; text-align: center;
+      position: relative;
     }
-    .cost-table .free {
-      color: var(--green);
-      font-weight: 700;
+    .testimonial::before {
+      content: '\201C'; position: absolute; top: 16px; left: 28px;
+      font-size: 64px; color: var(--accent); opacity: 0.2;
+      font-family: Georgia, serif; line-height: 1;
     }
+    .testimonial-text {
+      font-size: 1.1rem; line-height: 1.7; color: var(--text);
+      font-style: italic; margin-bottom: 20px; position: relative;
+    }
+    .testimonial-author { font-size: 14px; color: var(--text-muted); }
+    .testimonial-author strong { color: var(--text-secondary); font-weight: 600; }
 
     /* ── LIVE STATUS EMBED ── */
     .status-embed {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      text-align: center;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 40px; text-align: center;
+      position: relative; overflow: hidden;
     }
-    .status-embed h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 8px;
+    .status-embed::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, var(--green-bg), transparent 70%);
+      pointer-events: none;
     }
-    .status-embed p {
-      color: var(--text-secondary);
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
+    .status-embed h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; position: relative; }
+    .status-embed p { color: var(--text-secondary); font-size: 14px; margin-bottom: 20px; position: relative; }
     .status-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      padding: 12px 24px;
-      background: var(--accent-glow);
-      border: 1px solid rgba(59, 130, 246, 0.3);
-      border-radius: var(--radius-sm);
-      transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--accent); text-decoration: none; font-weight: 600; font-size: 15px;
+      padding: 12px 24px; background: var(--accent-glow);
+      border: 1px solid rgba(59, 130, 246, 0.3); border-radius: var(--radius-sm);
+      transition: all 0.2s; position: relative;
     }
-    .status-link:hover {
-      background: rgba(59, 130, 246, 0.2);
-      border-color: var(--accent);
-    }
+    .status-link:hover { background: rgba(59, 130, 246, 0.2); border-color: var(--accent); transform: translateY(-1px); }
 
     /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 48px 24px;
-    }
+    footer { border-top: 1px solid var(--border); padding: 48px 24px; }
     .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
     }
-    .footer-left {
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-    .footer-left a {
-      color: var(--text-secondary);
-      text-decoration: none;
-    }
+    .footer-left { font-size: 14px; color: var(--text-muted); }
+    .footer-left a { color: var(--text-secondary); text-decoration: none; }
     .footer-left a:hover { color: var(--text); }
-    .footer-links {
-      display: flex;
-      gap: 24px;
-    }
-    .footer-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.2s;
-    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
     .footer-links a:hover { color: var(--text); }
 
     /* ── RESPONSIVE ── */
@@ -614,16 +512,9 @@
       .nav-links { display: none; }
       .mobile-toggle { display: block; }
       .nav-links.open {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 64px;
-        left: 0;
-        right: 0;
-        background: var(--bg);
-        border-bottom: 1px solid var(--border);
-        padding: 16px 24px;
-        gap: 16px;
+        display: flex; flex-direction: column; position: absolute;
+        top: 64px; left: 0; right: 0; background: var(--bg);
+        border-bottom: 1px solid var(--border); padding: 16px 24px; gap: 16px;
       }
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .tools-grid { grid-template-columns: 1fr; }
@@ -631,20 +522,20 @@
       .arch-layer { flex-direction: column; align-items: flex-start; }
       .arch-layer-label { flex: unset; text-align: left; }
       .hero { padding: 130px 24px 70px; }
-      .cost-table { font-size: 13px; }
-      .cost-table th, .cost-table td { padding: 10px 12px; }
       .footer-inner { flex-direction: column; text-align: center; }
+      .testimonial { padding: 28px 20px; }
     }
-
     @media (max-width: 480px) {
       .stats-grid { grid-template-columns: 1fr 1fr; }
       .flow-steps { grid-template-columns: 1fr; }
+      .tech-logos { gap: 8px; }
+      .tech-logo { padding: 8px 12px; font-size: 12px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── NAV ─────────────────────────────────────── -->
+<!-- ── NAV ── -->
 <nav id="nav">
   <div class="nav-inner">
     <a href="#" class="logo">
@@ -662,15 +553,19 @@
   </div>
 </nav>
 
-<!-- ── HERO ─────────────────────────────────────── -->
+<!-- ── HERO ── -->
 <section class="hero">
-  <div class="hero-badge">
-    <span class="hero-badge-dot"></span>
-    All systems operational
+  <div class="hero-orb"></div>
+  <div class="hero-grid"></div>
+  <div class="reveal">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      All systems operational
+    </div>
   </div>
-  <h1>Platform Engineering<br><span class="gradient">at Zero Cost</span></h1>
-  <p>A GitOps-native toolkit where org governance, secret scanning, infrastructure monitoring, incident management, and notifications are all config-driven, GitHub Actions-orchestrated, and completely free.</p>
-  <div class="hero-actions">
+  <h1 class="reveal reveal-delay-1">Platform Engineering<br><span class="gradient">at Zero Cost</span></h1>
+  <p class="reveal reveal-delay-2">A GitOps-native toolkit where org governance, secret scanning, infrastructure monitoring, incident management, and notifications are all config-driven, GitHub Actions-orchestrated, and completely free.</p>
+  <div class="hero-actions reveal reveal-delay-3">
     <a href="https://github.com/caelicode" class="btn btn-primary" target="_blank">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
       View on GitHub
@@ -682,15 +577,15 @@
   </div>
 </section>
 
-<!-- ── STATS ─────────────────────────────────────── -->
+<!-- ── STATS ── -->
 <div class="stats">
-  <div class="stats-grid">
+  <div class="stats-grid reveal">
     <div class="stat">
-      <div class="stat-value">6</div>
+      <div class="stat-value accent">6</div>
       <div class="stat-label">Integrated Tools</div>
     </div>
     <div class="stat">
-      <div class="stat-value">$0</div>
+      <div class="stat-value green">$0</div>
       <div class="stat-label">Monthly Cost</div>
     </div>
     <div class="stat">
@@ -704,365 +599,260 @@
   </div>
 </div>
 
-<!-- ── ARCHITECTURE ─────────────────────────────── -->
+<!-- ── TECH STACK ── -->
+<div class="tech-strip reveal">
+  <div class="tech-strip-label">Built with</div>
+  <div class="tech-logos">
+    <div class="tech-logo">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      GitHub Actions
+    </div>
+    <div class="tech-logo">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      Grafana Cloud
+    </div>
+    <div class="tech-logo">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      Prometheus
+    </div>
+    <div class="tech-logo">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+      Oracle Cloud
+    </div>
+    <div class="tech-logo">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+      Loki
+    </div>
+    <div class="tech-logo">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      Python
+    </div>
+    <div class="tech-logo">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12H2"/><path d="M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z"/><line x1="6" y1="16" x2="6.01" y2="16"/><line x1="10" y1="16" x2="10.01" y2="16"/></svg>
+      Docker
+    </div>
+    <div class="tech-logo">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      YAML / GitOps
+    </div>
+  </div>
+</div>
+
+<!-- ── ARCHITECTURE ── -->
 <section id="architecture">
   <div class="section-inner">
-    <div class="section-label">
+    <div class="section-label reveal">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
       System Architecture
     </div>
-    <h2 class="section-title">Everything connects through<br>GitHub Actions &amp; YAML config</h2>
-    <p class="section-desc">An Oracle Cloud ARM instance acts as the control plane, dispatching workflows on precise schedules across all repositories. Every tool is config-driven and self-healing.</p>
+    <h2 class="section-title reveal reveal-delay-1">Everything connects through<br>GitHub Actions &amp; YAML config</h2>
+    <p class="section-desc reveal reveal-delay-2">An Oracle Cloud ARM instance acts as the control plane, dispatching workflows on precise schedules across all repositories. Every tool is config-driven and self-healing.</p>
 
-    <div class="arch-container">
+    <div class="arch-container reveal reveal-delay-3">
       <div class="arch-flow">
-
-        <!-- Control Plane -->
         <div class="arch-layer">
           <div class="arch-layer-label">Control Plane</div>
           <div class="arch-layer-nodes">
-            <div class="arch-node">
-              <div class="arch-node-icon" style="background:var(--purple-bg);color:var(--purple);">&#9881;</div>
-              Runner Infrastructure
-            </div>
-            <div class="arch-node">
-              <div class="arch-node-icon" style="background:var(--cyan-bg);color:var(--cyan);">&#9202;</div>
-              Cron Dispatcher
-            </div>
-            <div class="arch-node">
-              <div class="arch-node-icon" style="background:var(--accent-glow);color:var(--accent);">&#9889;</div>
-              GitHub Actions
-            </div>
+            <div class="arch-node"><div class="arch-node-icon" style="background:var(--purple-bg);color:var(--purple);">&#9881;</div>Runner Infrastructure</div>
+            <div class="arch-node"><div class="arch-node-icon" style="background:var(--cyan-bg);color:var(--cyan);">&#9202;</div>Cron Dispatcher</div>
+            <div class="arch-node"><div class="arch-node-icon" style="background:var(--accent-glow);color:var(--accent);">&#9889;</div>GitHub Actions</div>
           </div>
         </div>
-
-        <!-- Connector -->
-        <div class="arch-connector">
-          <svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--text-muted)" stroke-width="2" stroke-dasharray="4 4"/></svg>
-        </div>
-
-        <!-- Security -->
+        <div class="arch-connector"><div class="arch-connector-line"></div></div>
         <div class="arch-layer">
           <div class="arch-layer-label">Security</div>
           <div class="arch-layer-nodes">
-            <div class="arch-node">
-              <div class="arch-node-icon" style="background:var(--red-bg);color:var(--red);">&#128274;</div>
-              Secret Scanner
-            </div>
-            <div class="arch-node">
-              <div class="arch-node-icon" style="background:var(--amber-bg);color:var(--amber);">&#128101;</div>
-              Org Governance
-            </div>
+            <div class="arch-node"><div class="arch-node-icon" style="background:var(--red-bg);color:var(--red);">&#128274;</div>Secret Scanner</div>
+            <div class="arch-node"><div class="arch-node-icon" style="background:var(--amber-bg);color:var(--amber);">&#128101;</div>Org Governance</div>
           </div>
         </div>
-
-        <div class="arch-connector">
-          <svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--text-muted)" stroke-width="2" stroke-dasharray="4 4"/></svg>
-        </div>
-
-        <!-- Observability -->
+        <div class="arch-connector"><div class="arch-connector-line d2"></div></div>
         <div class="arch-layer">
           <div class="arch-layer-label">Observability</div>
           <div class="arch-layer-nodes">
-            <div class="arch-node">
-              <div class="arch-node-icon" style="background:var(--green-bg);color:var(--green);">&#128200;</div>
-              SOC Monitoring Stack
-            </div>
-            <div class="arch-node">
-              <div class="arch-node-icon" style="background:var(--cyan-bg);color:var(--cyan);">&#127760;</div>
-              Grafana Cloud
-            </div>
+            <div class="arch-node"><div class="arch-node-icon" style="background:var(--green-bg);color:var(--green);">&#128200;</div>SOC Monitoring Stack</div>
+            <div class="arch-node"><div class="arch-node-icon" style="background:var(--cyan-bg);color:var(--cyan);">&#127760;</div>Grafana Cloud</div>
           </div>
         </div>
-
-        <div class="arch-connector">
-          <svg width="2" height="24"><line x1="1" y1="0" x2="1" y2="24" stroke="var(--text-muted)" stroke-width="2" stroke-dasharray="4 4"/></svg>
-        </div>
-
-        <!-- Incident Response -->
+        <div class="arch-connector"><div class="arch-connector-line d3"></div></div>
         <div class="arch-layer">
           <div class="arch-layer-label">Incident Response</div>
           <div class="arch-layer-nodes">
-            <div class="arch-node">
-              <div class="arch-node-icon" style="background:var(--amber-bg);color:var(--amber);">&#128680;</div>
-              Status Page
-            </div>
-            <div class="arch-node">
-              <div class="arch-node-icon" style="background:var(--rose-bg);color:var(--rose);">&#9993;</div>
-              Email Notifications
-            </div>
-            <div class="arch-node">
-              <div class="arch-node-icon" style="background:var(--green-bg);color:var(--green);">&#9989;</div>
-              Statuspage.io
-            </div>
+            <div class="arch-node"><div class="arch-node-icon" style="background:var(--amber-bg);color:var(--amber);">&#128680;</div>Status Page</div>
+            <div class="arch-node"><div class="arch-node-icon" style="background:var(--rose-bg);color:var(--rose);">&#9993;</div>Email Notifications</div>
+            <div class="arch-node"><div class="arch-node-icon" style="background:var(--green-bg);color:var(--green);">&#9989;</div>Statuspage.io</div>
           </div>
         </div>
-
       </div>
+    </div>
+
+    <!-- Config Preview -->
+    <div class="code-preview reveal">
+      <div class="code-header">
+        <span class="code-dot r"></span><span class="code-dot y"></span><span class="code-dot g"></span>
+        <span class="code-filename">config.yaml</span>
+      </div>
+      <div class="code-body"><pre><span class="cm"># Single source of truth — edit this, push, everything syncs</span>
+<span class="key">endpoints</span>:
+  <span class="key">caelicode-com</span>:
+    <span class="key">name</span>: <span class="str">"caelicode.com"</span>
+    <span class="key">url</span>: <span class="str">"https://caelicode.com"</span>
+    <span class="key">frequency</span>: <span class="num">300000</span>        <span class="cm"># check every 5 minutes</span>
+    <span class="key">component</span>: <span class="bool">true</span>          <span class="cm"># auto-create Statuspage component</span>
+    <span class="key">metric</span>: <span class="bool">true</span>              <span class="cm"># publish latency to Statuspage</span>
+
+<span class="key">incidents</span>:
+  <span class="key">auto_create</span>: <span class="bool">true</span>           <span class="cm"># open incident when threshold breaches</span>
+  <span class="key">auto_resolve</span>: <span class="bool">true</span>          <span class="cm"># close when healthy again</span>
+  <span class="key">auto_postmortem</span>: <span class="bool">true</span>       <span class="cm"># generate postmortem on resolution</span>
+  <span class="key">notify_subscribers</span>: <span class="bool">true</span>    <span class="cm"># email stakeholders automatically</span></pre></div>
     </div>
   </div>
 </section>
 
-<!-- ── TOOLS ─────────────────────────────────────── -->
+<!-- ── TOOLS ── -->
 <section id="tools">
   <div class="section-inner">
-    <div class="section-label">
+    <div class="section-label reveal">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
       The Toolkit
     </div>
-    <h2 class="section-title">Six tools. One platform.<br>Zero monthly spend.</h2>
-    <p class="section-desc">Each tool is production-ready, config-driven, and integrated with the others through GitHub Actions workflows and shared notification infrastructure.</p>
+    <h2 class="section-title reveal reveal-delay-1">Six tools. One platform.<br>Zero monthly spend.</h2>
+    <p class="section-desc reveal reveal-delay-2">Each tool is production-ready, config-driven, and integrated with the others through GitHub Actions workflows and shared notification infrastructure.</p>
 
-    <div class="tools-grid">
-
-      <!-- Status Page -->
-      <div class="tool-card green">
-        <div class="tool-header">
-          <div class="tool-icon green">&#128200;</div>
-          <span class="tool-badge public">Public</span>
-        </div>
+    <div class="tools-grid stagger-children">
+      <div class="tool-card green reveal" style="--i:0">
+        <div class="tool-header"><div class="tool-icon green">&#128200;</div><span class="tool-badge public">Public</span></div>
         <div class="tool-name">Status Page</div>
         <p class="tool-desc">GitOps-driven service monitoring powered by Grafana Cloud synthetic checks. Automatically creates, updates, and resolves incidents on Atlassian Statuspage with configurable thresholds per endpoint.</p>
         <div class="tool-stats">
-          <span class="tool-stat">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            216 tests
-          </span>
-          <span class="tool-stat">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            5-min checks
-          </span>
-          <span class="tool-stat">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>
-            Auto-postmortem
-          </span>
+          <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>216 tests</span>
+          <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>5-min checks</span>
+          <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>Auto-postmortem</span>
         </div>
       </div>
 
-      <!-- GitHub User Management -->
-      <div class="tool-card amber">
-        <div class="tool-header">
-          <div class="tool-icon amber">&#128101;</div>
-          <span class="tool-badge">Private</span>
-        </div>
+      <div class="tool-card amber reveal" style="--i:1">
+        <div class="tool-header"><div class="tool-icon amber">&#128101;</div><span class="tool-badge">Private</span></div>
         <div class="tool-name">Org Governance</div>
         <p class="tool-desc">Manage your entire GitHub organization as code. YAML-driven member rosters, team structures, repository settings, and branch protection with Terraform-style PR plan previews before any change is applied.</p>
         <div class="tool-stats">
-          <span class="tool-stat">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
-            5 workflows
-          </span>
-          <span class="tool-stat">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            Drift detection
-          </span>
-          <span class="tool-stat">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-            Auto-protect
-          </span>
+          <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>5 workflows</span>
+          <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Drift detection</span>
+          <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Auto-protect</span>
         </div>
       </div>
 
-      <!-- Secret Scanner -->
-      <div class="tool-card red">
-        <div class="tool-header">
-          <div class="tool-icon red">&#128274;</div>
-          <span class="tool-badge">Private</span>
-        </div>
+      <div class="tool-card red reveal" style="--i:2">
+        <div class="tool-header"><div class="tool-icon red">&#128274;</div><span class="tool-badge">Private</span></div>
         <div class="tool-name">Secret Scanner</div>
         <p class="tool-desc">Dual-engine secret detection using Gitleaks (pattern matching) and TruffleHog (live verification). Scans both organization and personal repos with incremental scanning to minimize execution time.</p>
         <div class="tool-stats">
-          <span class="tool-stat">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            22+ rule types
-          </span>
-          <span class="tool-stat">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            CSV + Excel reports
-          </span>
-          <span class="tool-stat">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            Incremental scans
-          </span>
+          <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>22+ rule types</span>
+          <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>CSV + Excel reports</span>
+          <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Incremental scans</span>
         </div>
       </div>
 
-      <!-- SOC Monitoring Stack -->
-      <div class="tool-card cyan">
-        <div class="tool-header">
-          <div class="tool-icon cyan">&#128737;</div>
-          <span class="tool-badge">Private</span>
-        </div>
+      <div class="tool-card cyan reveal" style="--i:3">
+        <div class="tool-header"><div class="tool-icon cyan">&#128737;</div><span class="tool-badge">Private</span></div>
         <div class="tool-name">SOC Monitoring Stack</div>
         <p class="tool-desc">Containerized Security Operations Center with Grafana, Prometheus, Loki, Alertmanager, and Node Exporter. Four pre-built dashboards, seven alert rules, and 30-day data retention out of the box.</p>
         <div class="tool-stats">
-          <span class="tool-stat">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            7 services
-          </span>
-          <span class="tool-stat">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            4 dashboards
-          </span>
-          <span class="tool-stat">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
-            7 alert rules
-          </span>
+          <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>7 services</span>
+          <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>4 dashboards</span>
+          <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>7 alert rules</span>
         </div>
       </div>
 
-      <!-- Runner Infrastructure -->
-      <div class="tool-card purple">
-        <div class="tool-header">
-          <div class="tool-icon purple">&#9881;</div>
-          <span class="tool-badge">Private</span>
-        </div>
+      <div class="tool-card purple reveal" style="--i:4">
+        <div class="tool-header"><div class="tool-icon purple">&#9881;</div><span class="tool-badge">Private</span></div>
         <div class="tool-name">Runner Infrastructure</div>
         <p class="tool-desc">Self-hosted GitHub Actions runners on Oracle Cloud's always-free ARM instances. A cron-based dispatcher replaces GitHub's unreliable scheduling with precise, drift-proof workflow triggers across the entire org.</p>
         <div class="tool-stats">
-          <span class="tool-stat">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/></svg>
-            Oracle Cloud Free
-          </span>
-          <span class="tool-stat">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Exact cron timing
-          </span>
-          <span class="tool-stat">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-            ARM64 runner
-          </span>
+          <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/></svg>Oracle Cloud Free</span>
+          <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Exact cron timing</span>
+          <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>ARM64 runner</span>
         </div>
       </div>
 
-      <!-- Send Email -->
-      <div class="tool-card rose">
-        <div class="tool-header">
-          <div class="tool-icon rose">&#9993;</div>
-          <span class="tool-badge public">Public</span>
-        </div>
+      <div class="tool-card rose reveal" style="--i:5">
+        <div class="tool-header"><div class="tool-icon rose">&#9993;</div><span class="tool-badge public">Public</span></div>
         <div class="tool-name">Send Email Action</div>
         <p class="tool-desc">A production-grade GitHub Action for SMTP email delivery. Supports HTML bodies, file attachments, inline images, calendar invites, email threading, read receipts, priority headers, and custom SMTP providers.</p>
         <div class="tool-stats">
-          <span class="tool-stat">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            15+ input params
-          </span>
-          <span class="tool-stat">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>
-            Reusable action
-          </span>
-          <span class="tool-stat">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-            MIT licensed
-          </span>
+          <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>15+ input params</span>
+          <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>Reusable action</span>
+          <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>MIT licensed</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ── HOW IT WORKS ──────────────────────────────── -->
+<!-- ── HOW IT WORKS ── -->
 <section id="how-it-works" style="background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
   <div class="section-inner">
-    <div class="section-label">
+    <div class="section-label reveal">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
       How It Works
     </div>
-    <h2 class="section-title">Config-driven. Self-healing.<br>Fully automated.</h2>
-    <p class="section-desc">From a single YAML change to a live production update — the entire pipeline runs without manual intervention.</p>
+    <h2 class="section-title reveal reveal-delay-1">Config-driven. Self-healing.<br>Fully automated.</h2>
+    <p class="section-desc reveal reveal-delay-2">From a single YAML change to a live production update — the entire pipeline runs without manual intervention.</p>
 
-    <div class="flow-steps">
-      <div class="flow-step">
-        <h4>Define in YAML</h4>
-        <p>Endpoints, org members, teams, repos, branch protection, scan schedules — everything is declared in config files.</p>
-      </div>
-      <div class="flow-step">
-        <h4>Push to GitHub</h4>
-        <p>Open a PR and get a Terraform-style plan preview showing exactly what will change. Merge to main to apply.</p>
-      </div>
-      <div class="flow-step">
-        <h4>Dispatch Executes</h4>
-        <p>The Oracle Cloud dispatcher triggers workflows on precise schedules. No GitHub cron drift. No auto-disable after 60 days.</p>
-      </div>
-      <div class="flow-step">
-        <h4>Monitor &amp; Respond</h4>
-        <p>Grafana checks endpoints every 5 minutes. Incidents auto-create when thresholds breach. Email alerts fire. Status page updates. Incidents auto-resolve when healthy.</p>
-      </div>
-      <div class="flow-step">
-        <h4>Detect &amp; Protect</h4>
-        <p>Secret scanners run weekly and monthly. Drift detection catches unauthorized org changes. New repos get branch protection automatically.</p>
-      </div>
+    <div class="flow-steps reveal reveal-delay-3">
+      <div class="flow-step"><h4>Define in YAML</h4><p>Endpoints, org members, teams, repos, branch protection, scan schedules — everything is declared in config files.</p></div>
+      <div class="flow-step"><h4>Push to GitHub</h4><p>Open a PR and get a Terraform-style plan preview showing exactly what will change. Merge to main to apply.</p></div>
+      <div class="flow-step"><h4>Dispatch Executes</h4><p>The Oracle Cloud dispatcher triggers workflows on precise schedules. No GitHub cron drift. No auto-disable after 60 days.</p></div>
+      <div class="flow-step"><h4>Monitor &amp; Respond</h4><p>Grafana checks endpoints every 5 minutes. Incidents auto-create when thresholds breach. Email alerts fire. Status page updates.</p></div>
+      <div class="flow-step"><h4>Detect &amp; Protect</h4><p>Secret scanners run weekly and monthly. Drift detection catches unauthorized org changes. New repos get branch protection automatically.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ── COST COMPARISON ──────────────────────────── -->
+<!-- ── COST COMPARISON ── -->
 <section id="cost">
   <div class="section-inner">
-    <div class="section-label">
+    <div class="section-label reveal">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
       Cost Comparison
     </div>
-    <h2 class="section-title">Enterprise capabilities.<br>Zero enterprise pricing.</h2>
-    <p class="section-desc">What commercial platforms charge thousands for, CaeliCode Platform delivers using free tiers and open-source tooling.</p>
+    <h2 class="section-title reveal reveal-delay-1">Enterprise capabilities.<br>Zero enterprise pricing.</h2>
+    <p class="section-desc reveal reveal-delay-2">What commercial platforms charge thousands for, CaeliCode Platform delivers using free tiers and open-source tooling.</p>
 
-    <table class="cost-table">
-      <thead>
-        <tr>
-          <th>Capability</th>
-          <th>Commercial Equivalent</th>
-          <th>Typical Cost</th>
-          <th>CaeliCode</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Secret Scanning</td>
-          <td class="commercial">GitGuardian / GitHub Advanced Security</td>
-          <td class="commercial">$300+/mo</td>
-          <td class="free">$0</td>
-        </tr>
-        <tr>
-          <td>Status Page + Incidents</td>
-          <td class="commercial">Atlassian Statuspage (Team)</td>
-          <td class="commercial">$79/mo</td>
-          <td class="free">$0</td>
-        </tr>
-        <tr>
-          <td>Synthetic Monitoring</td>
-          <td class="commercial">Datadog Synthetic</td>
-          <td class="commercial">$12+/test/mo</td>
-          <td class="free">$0</td>
-        </tr>
-        <tr>
-          <td>Infrastructure Observability</td>
-          <td class="commercial">Datadog / New Relic</td>
-          <td class="commercial">$15+/host/mo</td>
-          <td class="free">$0</td>
-        </tr>
-        <tr>
-          <td>Org Access Management</td>
-          <td class="commercial">Terraform Cloud + custom IaC</td>
-          <td class="commercial">$500+/mo</td>
-          <td class="free">$0</td>
-        </tr>
-        <tr>
-          <td>CI/CD Runners</td>
-          <td class="commercial">GitHub-hosted runners (private repos)</td>
-          <td class="commercial">$0.008/min</td>
-          <td class="free">$0</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="cost-table-wrap reveal reveal-delay-3">
+      <table class="cost-table">
+        <thead>
+          <tr><th>Capability</th><th>Commercial Equivalent</th><th>Typical Cost</th><th>CaeliCode</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Secret Scanning</td><td class="commercial">GitGuardian / GitHub Advanced Security</td><td class="commercial">$300+/mo</td><td class="free">$0</td></tr>
+          <tr><td>Status Page + Incidents</td><td class="commercial">Atlassian Statuspage (Team)</td><td class="commercial">$79/mo</td><td class="free">$0</td></tr>
+          <tr><td>Synthetic Monitoring</td><td class="commercial">Datadog Synthetic</td><td class="commercial">$12+/test/mo</td><td class="free">$0</td></tr>
+          <tr><td>Infrastructure Observability</td><td class="commercial">Datadog / New Relic</td><td class="commercial">$15+/host/mo</td><td class="free">$0</td></tr>
+          <tr><td>Org Access Management</td><td class="commercial">Terraform Cloud + custom IaC</td><td class="commercial">$500+/mo</td><td class="free">$0</td></tr>
+          <tr><td>CI/CD Runners</td><td class="commercial">GitHub-hosted runners (private repos)</td><td class="commercial">$0.008/min</td><td class="free">$0</td></tr>
+          <tr class="total-row"><td>Total annual cost</td><td></td><td class="commercial">~$12,000+/yr</td><td class="free">$0/yr</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 
-<!-- ── LIVE STATUS ───────────────────────────────── -->
+<!-- ── TESTIMONIAL ── -->
 <section>
   <div class="section-inner">
-    <div class="status-embed">
+    <div class="testimonial reveal">
+      <p class="testimonial-text">"I worked with many coders for the past 10 years and it's hard to find someone with this level of skill and strict attention to detail. CaeliCode Solutions and the entire team were excellent in the execution of the project."</p>
+      <div class="testimonial-author">&mdash; <strong>Client Review</strong> via CaeliCode Solutions</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LIVE STATUS ── -->
+<section>
+  <div class="section-inner">
+    <div class="status-embed reveal">
       <h3>Live System Status</h3>
       <p>Real-time monitoring powered by Grafana Cloud synthetic checks, auto-managed by the CaeliCode status-page engine.</p>
       <a href="https://caelicode.statuspage.io" target="_blank" class="status-link">
@@ -1073,7 +863,7 @@
   </div>
 </section>
 
-<!-- ── FOOTER ─────────────────────────────────────── -->
+<!-- ── FOOTER ── -->
 <footer>
   <div class="footer-inner">
     <div class="footer-left">
@@ -1093,18 +883,36 @@
     document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 10);
   });
 
-  // Smooth scroll for anchor links
+  // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     a.addEventListener('click', function(e) {
       e.preventDefault();
       var target = document.querySelector(this.getAttribute('href'));
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // Close mobile menu if open
         document.querySelector('.nav-links').classList.remove('open');
       }
     });
   });
+
+  // Scroll reveal with IntersectionObserver
+  (function() {
+    var reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(function(el) { observer.observe(el); });
+    } else {
+      // Fallback: show everything
+      reveals.forEach(function(el) { el.classList.add('visible'); });
+    }
+  })();
 </script>
 
 </body>
