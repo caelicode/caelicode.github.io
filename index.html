@@ -3,21 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CaeliCode Platform — Zero-Cost Platform Engineering</title>
-  <meta name="description" content="A GitOps-native platform engineering toolkit where governance, security, monitoring, incident management, and notifications are driven by YAML config, orchestrated by GitHub Actions, and cost nothing to run.">
+  <title>CaeliCode Platform — The Infrastructure Behind CaeliCode</title>
+  <meta name="description" content="See how CaeliCode Solutions engineers its own infrastructure. Six integrated tools for governance, security, monitoring, and incident response — all GitOps-driven, config-managed, and production-grade.">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://platform.caelicode.com/">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://platform.caelicode.com/">
-  <meta property="og:title" content="CaeliCode Platform — Zero-Cost Platform Engineering">
-  <meta property="og:description" content="Six integrated tools. GitOps-native. Config-driven. $0/month. Org governance, secret scanning, monitoring, incident management, and notifications — all orchestrated by GitHub Actions.">
-  <meta property="og:image" content="https://platform.caelicode.com/og-image.png">
+  <meta property="og:title" content="CaeliCode Platform — The Infrastructure Behind CaeliCode">
+  <meta property="og:description" content="Six integrated tools. GitOps-native. Config-driven. Production-grade. Org governance, secret scanning, monitoring, incident management, and notifications — all orchestrated by GitHub Actions.">
+  <meta property="og:image" content="https://platform.caelicode.com/images/og-image.png">
+  <meta property="og:site_name" content="CaeliCode Solutions">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="CaeliCode Platform — Zero-Cost Platform Engineering">
-  <meta name="twitter:description" content="Six integrated tools. GitOps-native. Config-driven. $0/month.">
+  <meta name="twitter:title" content="CaeliCode Platform — The Infrastructure Behind CaeliCode">
+  <meta name="twitter:description" content="Six integrated tools. GitOps-native. Config-driven. Production-grade.">
 
-  <!-- Favicon (inline SVG as data URI) -->
-  <link rel="icon" href="images/technology (1).svg" type="image/svg+xml">
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "CaeliCode Platform",
+    "description": "The platform engineering toolkit that powers CaeliCode Solutions",
+    "url": "https://platform.caelicode.com",
+    "author": {
+      "@type": "Organization",
+      "name": "CaeliCode Solutions",
+      "url": "https://caelicode.com",
+      "logo": "https://caelicode.com/assets/caelicode-logo.png"
+    }
+  }
+  </script>
 
   <!-- Inter font for polish -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -411,6 +432,14 @@
       background: var(--bg); padding: 5px 10px; border-radius: 6px;
     }
     .tool-stat svg { flex-shrink: 0; }
+    .tool-links {
+      margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);
+    }
+    .tool-links a {
+      color: var(--accent); font-size: 13px; font-weight: 600;
+      text-decoration: none; transition: color 0.2s;
+    }
+    .tool-links a:hover { color: #60a5fa; }
 
     /* ── HOW IT WORKS ── */
     .flow-steps {
@@ -546,7 +575,7 @@
       <a href="#architecture">Architecture</a>
       <a href="#tools">Tools</a>
       <a href="#how-it-works">How It Works</a>
-      <a href="#cost">Cost</a>
+      <a href="#cost">Open Source</a>
       <a href="https://caelicode.com" target="_blank" class="nav-cta">caelicode.com &rarr;</a>
     </div>
   </div>
@@ -562,16 +591,16 @@
       All systems operational
     </div>
   </div>
-  <h1 class="reveal reveal-delay-1">Platform Engineering<br><span class="gradient">at Zero Cost</span></h1>
-  <p class="reveal reveal-delay-2">A GitOps-native toolkit where org governance, secret scanning, infrastructure monitoring, incident management, and notifications are all config-driven, GitHub Actions-orchestrated, and completely free.</p>
+  <h1 class="reveal reveal-delay-1">The Infrastructure<br><span class="gradient">Behind CaeliCode</span></h1>
+  <p class="reveal reveal-delay-2">This is the platform engineering toolkit that powers our operations. Six integrated tools managing governance, security, monitoring, and incident response — all GitOps-driven, config-managed, and built to the same production standards we bring to every client engagement.</p>
   <div class="hero-actions reveal reveal-delay-3">
-    <a href="https://github.com/caelicode" class="btn btn-primary" target="_blank">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-      View on GitHub
+    <a href="#tools" class="btn btn-primary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Explore the Toolkit
     </a>
-    <a href="https://caelicode.statuspage.io" class="btn btn-secondary" target="_blank">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      Live Status Page
+    <a href="https://caelicode.com/contact" class="btn btn-secondary" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      Work With Us &rarr;
     </a>
   </div>
 </section>
@@ -584,8 +613,8 @@
       <div class="stat-label">Integrated Tools</div>
     </div>
     <div class="stat">
-      <div class="stat-value green">$0</div>
-      <div class="stat-label">Monthly Cost</div>
+      <div class="stat-value green">YAML</div>
+      <div class="stat-label">Config-Driven</div>
     </div>
     <div class="stat">
       <div class="stat-value">216+</div>
@@ -716,8 +745,8 @@
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
       The Toolkit
     </div>
-    <h2 class="section-title reveal reveal-delay-1">Six tools. One platform.<br>Zero monthly spend.</h2>
-    <p class="section-desc reveal reveal-delay-2">Each tool is production-ready, config-driven, and integrated with the others through GitHub Actions workflows and shared notification infrastructure.</p>
+    <h2 class="section-title reveal reveal-delay-1">Six tools. One platform.<br>Fully integrated.</h2>
+    <p class="section-desc reveal reveal-delay-2">Each tool is production-ready, config-driven, and integrated with the others through GitHub Actions workflows and shared notification infrastructure. Public repositories are open source.</p>
 
     <div class="tools-grid stagger-children">
       <div class="tool-card green reveal" style="--i:0">
@@ -729,6 +758,7 @@
           <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>5-min checks</span>
           <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>Auto-postmortem</span>
         </div>
+        <div class="tool-links"><a href="https://github.com/caelicode/status-page" target="_blank" rel="noopener">View on GitHub &rarr;</a></div>
       </div>
 
       <div class="tool-card amber reveal" style="--i:1">
@@ -784,6 +814,7 @@
           <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>Reusable action</span>
           <span class="tool-stat"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>MIT licensed</span>
         </div>
+        <div class="tool-links"><a href="https://github.com/caelicode/send-email" target="_blank" rel="noopener">View on GitHub &rarr;</a></div>
       </div>
     </div>
   </div>
@@ -814,10 +845,10 @@
   <div class="section-inner">
     <div class="section-label reveal">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-      Cost Comparison
+      Why Open Source
     </div>
-    <h2 class="section-title reveal reveal-delay-1">Enterprise capabilities.<br>Zero enterprise pricing.</h2>
-    <p class="section-desc reveal reveal-delay-2">What commercial platforms charge thousands for, CaeliCode Platform delivers using free tiers and open-source tooling.</p>
+    <h2 class="section-title reveal reveal-delay-1">Enterprise capabilities.<br>Built on open-source foundations.</h2>
+    <p class="section-desc reveal reveal-delay-2">Every tool in this platform is built on battle-tested open-source and free-tier infrastructure — the same approach we recommend to clients who want maximum capability without vendor lock-in.</p>
 
     <div class="cost-table-wrap reveal reveal-delay-3">
       <table class="cost-table">
@@ -848,6 +879,27 @@
   </div>
 </section>
 
+<!-- ── WORK WITH US ── -->
+<section style="background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="section-inner" style="text-align: center; max-width: 700px;">
+    <div class="section-label reveal" style="justify-content: center;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      Work With Us
+    </div>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align: center;">This is how we engineer<br>solutions for our clients.</h2>
+    <p class="section-desc reveal reveal-delay-2" style="margin-left: auto; margin-right: auto; text-align: center;">The platform you see here is real — it powers our operations every day. When you hire CaeliCode Solutions, you get a team that builds infrastructure as code, automates relentlessly, and engineers for production from day one.</p>
+    <div class="reveal reveal-delay-3" style="text-align: center;">
+      <a href="https://caelicode.com/contact" class="btn btn-primary" target="_blank">
+        Start Your Project &rarr;
+      </a>
+      <a href="https://github.com/caelicode" class="btn btn-secondary" target="_blank" style="margin-left: 14px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        View on GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ── LIVE STATUS ── -->
 <section>
   <div class="section-inner">
@@ -871,7 +923,9 @@
     <div class="footer-links">
       <a href="https://github.com/caelicode" target="_blank">GitHub</a>
       <a href="https://www.linkedin.com/company/caelicode-solutions" target="_blank">LinkedIn</a>
-      <a href="https://caelicode.com/contact/" target="_blank">Contact</a>
+      <a href="https://caelicode.com/privacy" target="_blank">Privacy</a>
+      <a href="https://caelicode.com/terms" target="_blank">Terms</a>
+      <a href="https://caelicode.com/contact" target="_blank">Contact</a>
     </div>
   </div>
 </footer>
@@ -905,7 +959,7 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      }, { threshold: 0.05, rootMargin: '0px 0px 50px 0px' });
       reveals.forEach(function(el) { observer.observe(el); });
     } else {
       // Fallback: show everything
