@@ -476,10 +476,13 @@
     }
     .cost-table td { padding: 14px 20px; font-size: 14px; border-bottom: 1px solid var(--border); }
     .cost-table tr:last-child td { border-bottom: none; }
-    .cost-table .commercial { color: var(--text-muted); text-decoration: line-through; font-style: italic; }
-    .cost-table .free { color: var(--green); font-weight: 700; }
-    .cost-table .total-row td { border-top: 2px solid var(--border); font-weight: 700; font-size: 15px; }
-    .cost-table .total-row .commercial { font-size: 15px; }
+    .cost-table .stack-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .cost-table .stack-tag {
+      display: inline-block; background: rgba(99, 102, 241, 0.12); color: var(--accent);
+      font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 20px;
+      white-space: nowrap;
+    }
+    .cost-table .replaces { color: var(--text-muted); font-style: italic; font-size: 13px; }
 
     /* ── TESTIMONIAL ── */
     .testimonial {
@@ -844,25 +847,24 @@
 <section id="cost">
   <div class="section-inner">
     <div class="section-label reveal">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
       Why Open Source
     </div>
     <h2 class="section-title reveal reveal-delay-1">Enterprise capabilities.<br>Built on open-source foundations.</h2>
-    <p class="section-desc reveal reveal-delay-2">Every tool in this platform is built on battle-tested open-source and free-tier infrastructure — the same approach we recommend to clients who want maximum capability without vendor lock-in.</p>
+    <p class="section-desc reveal reveal-delay-2">Every tool in this platform is built on battle-tested open-source infrastructure — the same approach we recommend to clients who want maximum capability without vendor lock-in.</p>
 
     <div class="cost-table-wrap reveal reveal-delay-3">
       <table class="cost-table">
         <thead>
-          <tr><th>Capability</th><th>Commercial Equivalent</th><th>Typical Cost</th><th>CaeliCode</th></tr>
+          <tr><th>Capability</th><th>Replaces</th><th>Built With</th></tr>
         </thead>
         <tbody>
-          <tr><td>Secret Scanning</td><td class="commercial">GitGuardian / GitHub Advanced Security</td><td class="commercial">$300+/mo</td><td class="free">$0</td></tr>
-          <tr><td>Status Page + Incidents</td><td class="commercial">Atlassian Statuspage (Team)</td><td class="commercial">$79/mo</td><td class="free">$0</td></tr>
-          <tr><td>Synthetic Monitoring</td><td class="commercial">Datadog Synthetic</td><td class="commercial">$12+/test/mo</td><td class="free">$0</td></tr>
-          <tr><td>Infrastructure Observability</td><td class="commercial">Datadog / New Relic</td><td class="commercial">$15+/host/mo</td><td class="free">$0</td></tr>
-          <tr><td>Org Access Management</td><td class="commercial">Terraform Cloud + custom IaC</td><td class="commercial">$500+/mo</td><td class="free">$0</td></tr>
-          <tr><td>CI/CD Runners</td><td class="commercial">GitHub-hosted runners (private repos)</td><td class="commercial">$0.008/min</td><td class="free">$0</td></tr>
-          <tr class="total-row"><td>Total annual cost</td><td></td><td class="commercial">~$12,000+/yr</td><td class="free">$0/yr</td></tr>
+          <tr><td>Secret Scanning</td><td class="replaces">GitGuardian / GitHub Advanced Security</td><td><div class="stack-tags"><span class="stack-tag">Gitleaks</span><span class="stack-tag">TruffleHog</span><span class="stack-tag">GitHub Actions</span></div></td></tr>
+          <tr><td>Status Page + Incidents</td><td class="replaces">Atlassian Statuspage (Team)</td><td><div class="stack-tags"><span class="stack-tag">Statuspage.io</span><span class="stack-tag">Grafana Cloud</span><span class="stack-tag">Python</span></div></td></tr>
+          <tr><td>Synthetic Monitoring</td><td class="replaces">Datadog Synthetic</td><td><div class="stack-tags"><span class="stack-tag">Grafana Cloud</span><span class="stack-tag">Prometheus</span></div></td></tr>
+          <tr><td>Infrastructure Observability</td><td class="replaces">Datadog / New Relic</td><td><div class="stack-tags"><span class="stack-tag">Grafana</span><span class="stack-tag">Loki</span><span class="stack-tag">Node Exporter</span></div></td></tr>
+          <tr><td>Org Access Management</td><td class="replaces">Terraform Cloud + custom IaC</td><td><div class="stack-tags"><span class="stack-tag">YAML Config</span><span class="stack-tag">GitHub Actions</span><span class="stack-tag">GitHub API</span></div></td></tr>
+          <tr><td>CI/CD Runners</td><td class="replaces">GitHub-hosted runners (private repos)</td><td><div class="stack-tags"><span class="stack-tag">Oracle Cloud ARM</span><span class="stack-tag">Docker</span><span class="stack-tag">Self-hosted</span></div></td></tr>
         </tbody>
       </table>
     </div>
