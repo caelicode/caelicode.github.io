@@ -20,7 +20,7 @@ permissions:
 
 jobs:
   security:
-    uses: caelicode/.github/.github/workflows/reusable-security-scan.yml@f0fe993764a22dcf12370e6214411054503b83e0 # main
+    uses: caelicode/.github/.github/workflows/reusable-security-scan.yml@9207b4ef2a6f0ff486d8514722ddb4f682df2a7b # main
     with:
       languages: '[]'
       enable-codeql: false
