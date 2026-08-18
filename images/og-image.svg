@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">CaeliCode Platform — Operational Atlas</title>
+  <desc id="description">An evidence-led map of CaeliCode engineering systems, public source, authenticated operations, and explicit boundaries.</desc>
+  <defs>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="#31544a" stroke-width="1" opacity=".34"/>
+    </pattern>
+    <radialGradient id="glow" cx="80%" cy="42%" r="55%">
+      <stop offset="0" stop-color="#ff7448" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#ff7448" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0e2823"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect x="0" y="0" width="12" height="630" fill="#ff7448"/>
+
+  <g transform="translate(70 60)">
+    <circle cx="18" cy="18" r="18" fill="none" stroke="#c7dc6f" stroke-width="2"/>
+    <path d="M9 18h18M18 9v18" stroke="#c7dc6f" stroke-width="2"/>
+    <text x="52" y="23" fill="#edf7f3" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="-.5">CaeliCode</text>
+    <text x="168" y="23" fill="#82a198" font-family="JetBrains Mono, Menlo, monospace" font-size="13" letter-spacing="2">/ PLATFORM</text>
+  </g>
+
+  <g transform="translate(70 164)">
+    <text fill="#c7dc6f" font-family="JetBrains Mono, Menlo, monospace" font-size="13" font-weight="600" letter-spacing="2.4">OPERATIONAL ATLAS</text>
+    <text y="86" fill="#f1f8f5" font-family="Inter, Arial, sans-serif" font-size="66" font-weight="750" letter-spacing="-3">The operating layer</text>
+    <text y="158" fill="#ff7448" font-family="Georgia, Times New Roman, serif" font-size="72" font-style="italic" letter-spacing="-3">behind the work.</text>
+    <text y="216" fill="#9db4ac" font-family="Inter, Arial, sans-serif" font-size="19">Public implementation · Authenticated systems · Explicit boundaries</text>
+  </g>
+
+  <g transform="translate(760 130)">
+    <rect width="360" height="360" rx="18" fill="#081d19" stroke="#42665c"/>
+    <rect x="1" y="1" width="358" height="42" rx="17" fill="#0b211c"/>
+    <circle cx="22" cy="22" r="4" fill="#ff7448"/>
+    <circle cx="36" cy="22" r="4" fill="#f0b95f"/>
+    <circle cx="50" cy="22" r="4" fill="#c7dc6f"/>
+    <text x="180" y="26" text-anchor="middle" fill="#729087" font-family="JetBrains Mono, Menlo, monospace" font-size="9" letter-spacing="1.3">OPERATING MAP</text>
+
+    <text x="24" y="72" fill="#628177" font-family="JetBrains Mono, Menlo, monospace" font-size="8" letter-spacing="1.4">VERSIONED INPUT</text>
+    <rect x="24" y="84" width="312" height="54" rx="8" fill="#0d2a23" stroke="#36594f"/>
+    <rect x="37" y="98" width="26" height="26" rx="5" fill="none" stroke="#53746b"/>
+    <text x="50" y="115" text-anchor="middle" fill="#9eb5ad" font-family="JetBrains Mono, Menlo, monospace" font-size="8">01</text>
+    <text x="77" y="107" fill="#e8f3ef" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Repositories + configuration</text>
+    <text x="77" y="123" fill="#739087" font-family="JetBrains Mono, Menlo, monospace" font-size="7">code · YAML · reviewed changes</text>
+    <rect x="277" y="101" width="44" height="19" rx="5" fill="#153d33"/>
+    <text x="299" y="114" text-anchor="middle" fill="#83cfb4" font-family="JetBrains Mono, Menlo, monospace" font-size="7">MIXED</text>
+
+    <path d="M180 138v28" stroke="#507167"/>
+    <path d="m176 161 4 5 4-5" fill="none" stroke="#729087"/>
+
+    <text x="24" y="189" fill="#628177" font-family="JetBrains Mono, Menlo, monospace" font-size="8" letter-spacing="1.4">ORCHESTRATION</text>
+    <rect x="24" y="201" width="312" height="58" rx="8" fill="#15332c" stroke="#ff7448" stroke-opacity=".62"/>
+    <rect x="37" y="217" width="26" height="26" rx="5" fill="none" stroke="#53746b"/>
+    <text x="50" y="234" text-anchor="middle" fill="#9eb5ad" font-family="JetBrains Mono, Menlo, monospace" font-size="8">02</text>
+    <text x="77" y="226" fill="#e8f3ef" font-family="Inter, Arial, sans-serif" font-size="11" font-weight="700">Shared workflows + runner lanes</text>
+    <text x="77" y="242" fill="#739087" font-family="JetBrains Mono, Menlo, monospace" font-size="7">execute · verify · produce evidence</text>
+
+    <path d="M180 259v28M70 287h220M70 287v18M180 287v18M290 287v18" fill="none" stroke="#507167"/>
+    <g font-family="JetBrains Mono, Menlo, monospace" font-size="7">
+      <rect x="24" y="305" width="92" height="36" rx="6" fill="#0d2a23" stroke="#36594f"/>
+      <text x="70" y="321" text-anchor="middle" fill="#c7dc6f">PUBLIC</text><text x="70" y="333" text-anchor="middle" fill="#759188">STATUS</text>
+      <rect x="134" y="305" width="92" height="36" rx="6" fill="#0d2a23" stroke="#36594f"/>
+      <text x="180" y="321" text-anchor="middle" fill="#6eb9e9">AUTH</text><text x="180" y="333" text-anchor="middle" fill="#759188">RUNNERLY</text>
+      <rect x="244" y="305" width="92" height="36" rx="6" fill="#0d2a23" stroke="#36594f"/>
+      <text x="290" y="321" text-anchor="middle" fill="#83cfb4">PRIVATE</text><text x="290" y="333" text-anchor="middle" fill="#759188">REPORTS</text>
+    </g>
+  </g>
+
+  <g transform="translate(70 548)" font-family="JetBrains Mono, Menlo, monospace" font-size="11" letter-spacing="1.3">
+    <text fill="#7f9b92">SOURCE-LINKED</text><circle cx="136" cy="-4" r="3" fill="#c7dc6f"/>
+    <text x="163" fill="#7f9b92">ACCESS-CONTROLLED</text><circle cx="334" cy="-4" r="3" fill="#6eb9e9"/>
+    <text x="361" fill="#7f9b92">BOUNDARY-LABELED</text>
+  </g>
+  <text x="1130" y="564" text-anchor="end" fill="#78958c" font-family="JetBrains Mono, Menlo, monospace" font-size="12">platform.caelicode.com</text>
+</svg>
