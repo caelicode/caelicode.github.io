@@ -1,0 +1,14 @@
+{
+  "name": "caelicode-platform-atlas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Evidence-led operational atlas for the CaeliCode engineering workspace.",
+  "scripts": {
+    "test": "node --test",
+    "validate": "node scripts/validate.mjs",
+    "preview": "node scripts/preview.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
