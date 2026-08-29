@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>SpeakScribe Privacy Policy</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --page: #07111f;
+      --panel: #0e1b2d;
+      --text: #f5f7fb;
+      --muted: #a9b6c8;
+      --border: #24364e;
+      --mint: #70e1c1;
+      --violet: #ad9cff;
+    }
+
+    * { box-sizing: border-box; }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 10;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--text);
+      color: var(--page);
+      font-weight: 700;
+      transform: translateY(-160%);
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(112, 225, 193, 0.13), transparent 28rem),
+        radial-gradient(circle at 92% 8%, rgba(173, 156, 255, 0.13), transparent 30rem),
+        var(--page);
+      color: var(--text);
+      font: 16px/1.7 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(860px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 48px 0 72px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--mint);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      text-decoration: none;
+    }
+
+    .brand::before {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--mint), var(--violet));
+      box-shadow: 0 0 20px rgba(112, 225, 193, 0.55);
+      content: "";
+    }
+
+    article {
+      margin-top: 22px;
+      padding: clamp(24px, 5vw, 52px);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      background: color-mix(in srgb, var(--panel) 94%, transparent);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+    }
+
+    h1, h2 { line-height: 1.2; letter-spacing: -0.035em; }
+    h1 { margin: 0; font-size: clamp(2.25rem, 7vw, 4rem); }
+    h2 { margin: 2.2rem 0 0.65rem; font-size: 1.35rem; color: var(--mint); }
+    p { margin: 0.7rem 0; }
+    .updated { color: var(--muted); }
+    a { color: var(--violet); }
+    strong { color: #ffffff; }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        color-scheme: light;
+        --page: #f4f7fb;
+        --panel: #ffffff;
+        --text: #122033;
+        --muted: #56667a;
+        --border: #dce5ef;
+        --mint: #087f6d;
+        --violet: #6350c9;
+      }
+
+      article { box-shadow: 0 24px 70px rgba(28, 51, 77, 0.11); }
+      strong { color: #07111f; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <main id="main-content" tabindex="-1">
+    <a class="brand" href="https://chromewebstore.google.com/detail/speakscribe-live-speech-t/ipblioflcbpelcjnfenfehdplmnkfcic">SpeakScribe</a>
+    <article>
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: August 28, 2026</p>
+
+      <h2>Overview</h2>
+      <p>SpeakScribe is a Chrome extension that converts speech to text. This policy explains what the extension accesses, how each transcription mode processes data, and what is stored.</p>
+
+      <h2>Chrome Web Store Limited Use</h2>
+      <p>SpeakScribe's use and transfer of information received from Google APIs complies with the Chrome Web Store User Data Policy, including its Limited Use requirements. Data is used only to provide or improve the transcription features the user chooses. SpeakScribe does not sell user data, use it for advertising, use it to determine creditworthiness, or allow humans to read transcript content except with the user's explicit consent for support, when necessary for security, or when legally required.</p>
+
+      <h2>Data Collection</h2>
+      <p>SpeakScribe does not include analytics, advertising, or tracking SDKs. In Chrome local storage it keeps dictation, display, export, and interface preferences; custom vocabulary and voice commands; per-site rules, including the relevant site hostnames; widget position; meeting-mode state; and install or trial timestamps. When a paid license is activated, it also keeps the full license key, device instance identifier, customer email and product name returned by Lemon Squeezy, and activation and last-validation timestamps. These records are held in the user's Chrome profile and are not separately encrypted by SpeakScribe.</p>
+      <p>During a transcription session, transcript text, line timestamps, and active-capture state are kept in Chrome's temporary session storage so extension views remain synchronized. SpeakScribe does not write that transcript state to its persistent local storage. Chrome clears session storage when the extension is reloaded or updated and when the browser restarts.</p>
+      <p>The extension does not request Chrome's browsing-history permission. Its content script is present on webpages so the widget can appear and place dictated text into the editable field selected by the user. Audio and transcript data are processed only for the selected transcription mode.</p>
+
+      <h2>Speech Processing</h2>
+      <p><strong>Standard:</strong> Chrome's Web Speech API sends audio to Google's speech-recognition service. This browser feature is governed by Google's policies, and SpeakScribe does not control that transfer.</p>
+      <p><strong>Local Whisper:</strong> The extension downloads a selected model from Hugging Face/Xenova and caches it in Chrome. Final transcription runs locally. If Local live preview is enabled, Chrome's Web Speech API may process interim preview words.</p>
+      <p><strong>Enhanced and Meeting:</strong> Audio is streamed through the SpeakScribe proxy to Deepgram for real-time recognition. The proxy relays audio and transcript messages in memory and is not designed to save recordings or transcript content. Hosting infrastructure and Deepgram may process connection metadata under their own security, logging, and retention practices.</p>
+
+      <h2>Storage and User Control</h2>
+      <p>Local Whisper model files are stored separately in the browser's extension cache or IndexedDB. Deactivating a license removes its locally stored license records. Uninstalling SpeakScribe removes its extension-owned data; Chrome's extension data controls can also be used to clear stored settings, session data, and cached models.</p>
+
+      <h2>Permissions</h2>
+      <p><strong>Content scripts on webpages:</strong> Show the dictation widget and insert text into the editable field chosen by the user. Chrome blocks content scripts on protected browser pages.</p>
+      <p><strong>storage:</strong> Save preferences and license state locally.</p>
+      <p><strong>tabCapture:</strong> Capture audio from a user-selected tab for Meeting transcription.</p>
+      <p><strong>offscreen:</strong> Run Enhanced, Local Whisper, and Meeting audio work in an extension-owned background document.</p>
+
+      <h2>License Validation</h2>
+      <p>During activation, periodic validation, and deactivation, SpeakScribe sends the full license key and device instance identifier to Lemon Squeezy over HTTPS. Lemon Squeezy returns license status and account metadata such as customer email and product name, which are stored locally as described above.</p>
+      <p>At the start of each Enhanced or Meeting session, the extension also sends the full license key and device instance identifier over an encrypted WebSocket connection to the SpeakScribe proxy. The proxy validates them with Lemon Squeezy when a current result is not already cached. It keeps only a cryptographic hash of the key and instance in a bounded in-memory validation cache for up to five minutes and for concurrent-session enforcement while the session is active. License credentials are not sent to Deepgram. Browsing data, audio, and transcript content are not included in license-validation requests.</p>
+
+      <h2>Third-Party Services</h2>
+      <p>SpeakScribe uses Google/Chrome speech recognition for Standard and optional Local preview, Hugging Face/Xenova for Local model downloads, Deepgram for Enhanced and Meeting transcription, Railway to host the in-memory proxy, and Lemon Squeezy for license validation. These providers process the data needed for their stated function under their own privacy and security practices. SpeakScribe does not include advertising or tracking integrations.</p>
+
+      <h2>Retention and Security</h2>
+      <p>The proxy relays audio and transcript messages in memory and is not designed to persist recordings or transcript content. It processes a connection's IP address in memory for authentication rate limiting. Its application logs may contain a random connection identifier, language and diarization choices, connection timing, authentication outcome, rejected origin, service events and errors, and a truncated cryptographic credential hash. Audio, transcript content, and full license keys are not written to application logs by design.</p>
+      <p>Railway and the other third-party providers may retain infrastructure, network, security, and service logs according to their own policies and configured retention. Network services use encrypted HTTPS or WebSocket connections.</p>
+
+      <h2>Children's Privacy</h2>
+      <p>SpeakScribe does not knowingly collect personal information from children under 13.</p>
+
+      <h2>Changes</h2>
+      <p>Updates to this policy will be posted here with a revised date.</p>
+
+      <h2>Contact</h2>
+      <p>For privacy questions, use the <a href="https://caelicode.com/contact">CaeliCode contact page</a>. Never include a license key, transcript, receipt, or other private information unless it is necessary to resolve your request.</p>
+    </article>
+  </main>
+</body>
+</html>
