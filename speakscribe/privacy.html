@@ -118,7 +118,8 @@
       <p>SpeakScribe's use and transfer of information received from Google APIs complies with the Chrome Web Store User Data Policy, including its Limited Use requirements. Data is used only to provide or improve the transcription features the user chooses. SpeakScribe does not sell user data, use it for advertising, use it to determine creditworthiness, or allow humans to read transcript content except with the user's explicit consent for support, when necessary for security, or when legally required.</p>
 
       <h2>Data Collection</h2>
-      <p>SpeakScribe does not include analytics, advertising, or tracking SDKs. It stores preferences, custom vocabulary, site rules, recent transcript session state, and license state in Chrome extension storage.</p>
+      <p>SpeakScribe does not include analytics, advertising, or tracking SDKs. In Chrome local storage it keeps dictation, display, export, and interface preferences; custom vocabulary and voice commands; per-site rules, including the relevant site hostnames; widget position; meeting-mode state; and install or trial timestamps. When a paid license is activated, it also keeps the full license key, device instance identifier, customer email and product name returned by Lemon Squeezy, and activation and last-validation timestamps. These records are held in the user's Chrome profile and are not separately encrypted by SpeakScribe.</p>
+      <p>During a transcription session, transcript text, line timestamps, and active-capture state are kept in Chrome's temporary session storage so extension views remain synchronized. SpeakScribe does not write that transcript state to its persistent local storage. Chrome clears session storage when the extension is reloaded or updated and when the browser restarts.</p>
       <p>The extension does not request Chrome's browsing-history permission. Its content script is present on webpages so the widget can appear and place dictated text into the editable field selected by the user. Audio and transcript data are processed only for the selected transcription mode.</p>
 
       <h2>Speech Processing</h2>
@@ -126,8 +127,8 @@
       <p><strong>Local Whisper:</strong> The extension downloads a selected model from Hugging Face/Xenova and caches it in Chrome. Final transcription runs locally. If Local live preview is enabled, Chrome's Web Speech API may process interim preview words.</p>
       <p><strong>Enhanced and Meeting:</strong> Audio is streamed through the SpeakScribe proxy to Deepgram for real-time recognition. The proxy relays audio and transcript messages in memory and is not designed to save recordings or transcript content. Hosting infrastructure and Deepgram may process connection metadata under their own security, logging, and retention practices.</p>
 
-      <h2>Local Storage</h2>
-      <p>Chrome local storage holds preferences such as language, engine, theme, export format, custom vocabulary, site rules, and license status. Recent transcript state may remain in Chrome session storage so extension views stay synchronized during the current browser session.</p>
+      <h2>Storage and User Control</h2>
+      <p>Local Whisper model files are stored separately in the browser's extension cache or IndexedDB. Deactivating a license removes its locally stored license records. Uninstalling SpeakScribe removes its extension-owned data; Chrome's extension data controls can also be used to clear stored settings, session data, and cached models.</p>
 
       <h2>Permissions</h2>
       <p><strong>Content scripts on webpages:</strong> Show the dictation widget and insert text into the editable field chosen by the user. Chrome blocks content scripts on protected browser pages.</p>
@@ -136,13 +137,15 @@
       <p><strong>offscreen:</strong> Run Enhanced, Local Whisper, and Meeting audio work in an extension-owned background document.</p>
 
       <h2>License Validation</h2>
-      <p>When a Pro license is activated, SpeakScribe communicates with Lemon Squeezy to validate the license key and its device instance identifier. Browsing data, audio, and transcript content are not included in license-validation requests.</p>
+      <p>During activation, periodic validation, and deactivation, SpeakScribe sends the full license key and device instance identifier to Lemon Squeezy over HTTPS. Lemon Squeezy returns license status and account metadata such as customer email and product name, which are stored locally as described above.</p>
+      <p>At the start of each Enhanced or Meeting session, the extension also sends the full license key and device instance identifier over an encrypted WebSocket connection to the SpeakScribe proxy. The proxy validates them with Lemon Squeezy when a current result is not already cached. It keeps only a cryptographic hash of the key and instance in a bounded in-memory validation cache for up to five minutes and for concurrent-session enforcement while the session is active. License credentials are not sent to Deepgram. Browsing data, audio, and transcript content are not included in license-validation requests.</p>
 
       <h2>Third-Party Services</h2>
-      <p>SpeakScribe uses Google/Chrome speech recognition for Standard and optional Local preview, Hugging Face/Xenova for Local model downloads, Deepgram for Enhanced transcription, hosting infrastructure for the in-memory proxy, and Lemon Squeezy for license validation. It does not include advertising or tracking integrations.</p>
+      <p>SpeakScribe uses Google/Chrome speech recognition for Standard and optional Local preview, Hugging Face/Xenova for Local model downloads, Deepgram for Enhanced and Meeting transcription, Railway to host the in-memory proxy, and Lemon Squeezy for license validation. These providers process the data needed for their stated function under their own privacy and security practices. SpeakScribe does not include advertising or tracking integrations.</p>
 
       <h2>Retention and Security</h2>
-      <p>Local preferences and cached models can be removed by uninstalling SpeakScribe or clearing its Chrome storage. The proxy does not intentionally persist audio or transcript content, though operational and security logs may retain limited connection metadata. Third-party processing and retention are governed by each provider's policy. Network services use encrypted HTTPS or WebSocket connections.</p>
+      <p>The proxy relays audio and transcript messages in memory and is not designed to persist recordings or transcript content. It processes a connection's IP address in an in-memory rate-limit window for approximately one minute. Its application logs may contain a random connection identifier, language and diarization choices, connection timing, authentication outcome, rejected origin, service events and errors, and a truncated cryptographic credential hash. Audio, transcript content, and full license keys are not written to application logs by design.</p>
+      <p>Railway and the other third-party providers may retain infrastructure, network, security, and service logs according to their own policies and configured retention. Network services use encrypted HTTPS or WebSocket connections.</p>
 
       <h2>Children's Privacy</h2>
       <p>SpeakScribe does not knowingly collect personal information from children under 13.</p>
@@ -151,7 +154,7 @@
       <p>Updates to this policy will be posted here with a revised date.</p>
 
       <h2>Contact</h2>
-      <p>For privacy questions, open an issue in the <a href="https://github.com/caelicode/speakscribe/issues">SpeakScribe repository</a>. Never include a license key, transcript, receipt, or other private information in a public issue.</p>
+      <p>For privacy questions, use the <a href="https://caelicode.com/contact">CaeliCode contact page</a>. Never include a license key, transcript, receipt, or other private information unless it is necessary to resolve your request.</p>
     </article>
   </main>
 </body>
