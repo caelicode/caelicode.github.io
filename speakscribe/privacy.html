@@ -1,167 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="dark light">
-  <meta name="referrer" content="no-referrer">
-  <title>SpeakScribe Privacy Policy</title>
-  <style>
-    :root {
-      color-scheme: dark;
-      --page: #07111f;
-      --panel: #0e1b2d;
-      --text: #f5f7fb;
-      --muted: #a9b6c8;
-      --border: #24364e;
-      --mint: #70e1c1;
-      --violet: #ad9cff;
-    }
-
-    * { box-sizing: border-box; }
-
-    .skip-link {
-      position: fixed;
-      top: 12px;
-      left: 12px;
-      z-index: 10;
-      padding: 10px 14px;
-      border-radius: 10px;
-      background: var(--text);
-      color: var(--page);
-      font-weight: 700;
-      transform: translateY(-160%);
-    }
-
-    .skip-link:focus { transform: translateY(0); }
-
-    body {
-      margin: 0;
-      background:
-        radial-gradient(circle at 12% 0%, rgba(112, 225, 193, 0.13), transparent 28rem),
-        radial-gradient(circle at 92% 8%, rgba(173, 156, 255, 0.13), transparent 30rem),
-        var(--page);
-      color: var(--text);
-      font: 16px/1.7 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    main {
-      width: min(860px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 48px 0 72px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--mint);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      text-decoration: none;
-    }
-
-    .brand::before {
-      width: 12px;
-      height: 12px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--mint), var(--violet));
-      box-shadow: 0 0 20px rgba(112, 225, 193, 0.55);
-      content: "";
-    }
-
-    article {
-      margin-top: 22px;
-      padding: clamp(24px, 5vw, 52px);
-      border: 1px solid var(--border);
-      border-radius: 26px;
-      background: color-mix(in srgb, var(--panel) 94%, transparent);
-      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
-    }
-
-    h1, h2 { line-height: 1.2; letter-spacing: -0.035em; }
-    h1 { margin: 0; font-size: clamp(2.25rem, 7vw, 4rem); }
-    h2 { margin: 2.2rem 0 0.65rem; font-size: 1.35rem; color: var(--mint); }
-    p { margin: 0.7rem 0; }
-    .updated { color: var(--muted); }
-    a { color: var(--violet); }
-    strong { color: #ffffff; }
-
-    @media (prefers-color-scheme: light) {
-      :root {
-        color-scheme: light;
-        --page: #f4f7fb;
-        --panel: #ffffff;
-        --text: #122033;
-        --muted: #56667a;
-        --border: #dce5ef;
-        --mint: #087f6d;
-        --violet: #6350c9;
-      }
-
-      article { box-shadow: 0 24px 70px rgba(28, 51, 77, 0.11); }
-      strong { color: #07111f; }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - SpeakScribe</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  <main id="main-content" tabindex="-1">
-    <a class="brand" href="https://chromewebstore.google.com/detail/speakscribe-live-speech-t/ipblioflcbpelcjnfenfehdplmnkfcic">SpeakScribe</a>
-    <article>
-      <h1>Privacy Policy</h1>
-      <p class="updated">Last updated: August 30, 2026</p>
+<body class="docs-page">
+  <main class="container">
+    <a href="index.html" class="back-link">Back to SpeakScribe</a>
+    <article class="policy-panel">
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last updated: August 30, 2026</p>
 
-      <h2>Overview</h2>
-      <p>SpeakScribe is a Chrome extension that converts speech to text directly in your browser. Your privacy is important to us. This policy explains what data the extension accesses, how it is used, and what is stored.</p>
+    <h2>Overview</h2>
+    <p>SpeakScribe is a Chrome extension that converts speech to text directly in your browser. Your privacy is important to us. This policy explains what data the extension accesses, how it is used, and what is stored.</p>
 
-      <h2>Data Collection</h2>
-      <p>SpeakScribe does not include analytics, advertising, or tracking SDKs. The extension stores preferences, transcript session state, and the minimum license state needed to provide and validate Pro access in Chrome extension storage.</p>
-      <p>To provide insertion and spoken editing commands, SpeakScribe locally reads the value and selection of the editable field you choose. Dictated transcript text may contain personal communications or other text you intentionally speak. This content is used only for the requested dictation feature and is not sent to SpeakScribe servers. The in-page widget is rendered in the active webpage's document, so scripts on that page may be able to observe interim or final transcript text displayed in the widget. After you direct SpeakScribe to insert text into a webpage, the page receives the text and input events. That webpage and its operator can then process the text under their own terms and privacy policy; SpeakScribe does not control that later handling.</p>
-      <p>SpeakScribe does not sell personal data, request Chrome's browsing-history permission, or build a browsing-history list. It uses page addresses and hostnames locally for protected-page checks, user-created per-site rules, and adapting widget placement on supported assistant sites. Its content script is present on regular webpages so the widget can appear and place dictated text into the editable field you select.</p>
+    <h2>Data Collection</h2>
+    <p>SpeakScribe does not include analytics, advertising, or tracking SDKs. The extension stores preferences, transcript session state, and the minimum license state needed to provide and validate Pro access in Chrome extension storage.</p>
+    <p>To provide insertion and spoken editing commands, SpeakScribe locally reads the value and selection of the editable field you choose. Dictated transcript text may contain personal communications or other text you intentionally speak. This content is used only for the requested dictation feature and is not sent to SpeakScribe servers. The in-page widget is rendered in the active webpage's document, so scripts on that page may be able to observe interim or final transcript text displayed in the widget. After you direct SpeakScribe to insert text into a webpage, the page receives the text and input events. That webpage and its operator can then process the text under their own terms and privacy policy; SpeakScribe does not control that later handling.</p>
+    <p>SpeakScribe does not sell personal data, request Chrome's browsing-history permission, or build a browsing-history list. It uses page addresses and hostnames locally for protected-page checks, user-created per-site rules, and adapting widget placement on supported assistant sites. Its content script is present on regular webpages so the widget can appear and place dictated text into the editable field you select.</p>
 
-      <h2>Speech Processing</h2>
-      <p>When using Standard, Chrome's server-based Web Speech recognition service receives microphone audio and the selected recognition language and returns interim and final transcript results. Google may also receive ordinary network, browser, and device information. Audio and transcript text are not routed through or stored on SpeakScribe servers, and SpeakScribe does not control Google's processing or retention. Google's handling is described in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
-      <p>When using Local Whisper, the packaged Transformers.js/ONNX runtime performs final transcription on the device. Local microphone samples are held temporarily in extension memory during capture and are not intentionally written to persistent extension storage; their references are released after segment processing or when capture stops. If the selected model is not cached, the extension downloads its artifacts from Hugging Face/Xenova delivery infrastructure and caches them in Chrome. The download reveals the requested model URL or identifier and ordinary request metadata, including the IP address, but does not include microphone audio, transcript text, page content, or license data. If you enable Local live preview, the extension also starts Chrome's server-based Web Speech recognition service, which receives microphone audio and the selected recognition language and returns interim preview words under the Google handling described above.</p>
-      <p>Enhanced and Meeting cloud transcription are disabled in the current release, and this build cannot connect to the SpeakScribe proxy or Deepgram. If cloud transcription launches later as a separately metered feature, this policy and the Chrome Web Store disclosures will be updated before it is enabled.</p>
+    <h2>Speech Processing</h2>
+    <p>When using Standard, Chrome's server-based Web Speech recognition service receives microphone audio and the selected recognition language and returns interim and final transcript results. Google may also receive ordinary network, browser, and device information. Audio and transcript text are not routed through or stored on SpeakScribe servers, and SpeakScribe does not control Google's processing or retention. Google's handling is described in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.</p>
+    <p>When using Local Whisper, the packaged Transformers.js/ONNX runtime performs final transcription on the device. Local microphone samples are held temporarily in extension memory during capture and are not intentionally written to persistent extension storage; their references are released after segment processing or when capture stops. If the selected model is not cached, the extension downloads its artifacts from Hugging Face/Xenova delivery infrastructure and caches them in Chrome. The download reveals the requested model URL or identifier and ordinary request metadata, including the IP address, but does not include microphone audio, transcript text, page content, or license data. If you enable Local live preview, the extension also starts Chrome's server-based Web Speech recognition service, which receives microphone audio and the selected recognition language and returns interim preview words under the Google handling described above.</p>
+    <p>Enhanced and Meeting cloud transcription are disabled in the current release, and this build cannot connect to the SpeakScribe proxy or Deepgram. If cloud transcription launches later as a separately metered feature, this policy and the Chrome Web Store disclosures will be updated before it is enabled.</p>
 
-      <h2>Local Storage</h2>
-      <p>Chrome local storage can contain language, engine, model, display, export, and theme preferences; custom vocabulary and commands; user-entered hostname rules; widget position; trial start time; and license state. If live activation is enabled, SpeakScribe stores an AES-256-GCM encrypted activation-recovery envelope before sending the activation request. The encrypted envelope can contain the full license key, a random internal record identifier, a unique operation/recovery code, the unique Lemon Squeezy instance label derived from that code, the attempt state, the creation time, and, if Lemon Squeezy returned them, its license-instance and catalog identifiers. While an activation is unresolved, the extension can show the recovery code and only the last four license-key characters so the user can identify the attempt without displaying the full key.</p>
-      <p>After a completed activation, SpeakScribe encrypts the recoverable full license key and the minimum entitlement metadata with AES-256-GCM before placing ciphertext records in Chrome local storage. That metadata can include the Lemon Squeezy license-instance identifier, a four-character key hint, product or variant display name, catalog identifiers, activation time, and last-validation time. During deactivation or incomplete cleanup, Chrome local storage can also contain a temporary unencrypted safety marker with a random record identifier, reason, remote-confirmation flag, and update timestamp; it does not contain the license key, customer identity, or order details. When a signed activation-recovery receipt is applied, Chrome local storage also stores a bounded unencrypted replay-protection entry containing only the receipt's random nonce and expiration time. The complete receipt is not retained. Expired replay entries are removed during later recovery attempts. The non-extractable encryption key used for the encrypted records is stored separately in extension-owned IndexedDB. SpeakScribe does not persist the customer name, checkout email, or order and customer identifiers returned by Lemon Squeezy.</p>
-      <p>This encryption is defense in depth: it prevents the full key and entitlement metadata from appearing as readable Chrome-storage values, but it is not an operating-system keychain and cannot protect data on a compromised browser, browser profile, extension, or device. Device-level protection still depends on Chrome, the browser profile, and the operating system.</p>
-      <p>Per-tab widget visibility, recent transcript text, line timestamps, and active capture state may be held in Chrome session storage so extension views remain synchronized. Local Whisper model files are cached separately in the browser. When you select Copy, the requested transcript is written to the system clipboard. When you select Export, the browser writes the requested transcript file to its configured download location. Neither action occurs unless you request it.</p>
+    <h2>Local Storage</h2>
+    <p>Chrome local storage can contain language, engine, model, display, export, and theme preferences; custom vocabulary and commands; user-entered hostname rules; widget position; trial start time; and license state. If live activation is enabled, SpeakScribe stores an AES-256-GCM encrypted activation-recovery envelope before sending the activation request. The encrypted envelope can contain the full license key, a random internal record identifier, a unique operation/recovery code, the unique Lemon Squeezy instance label derived from that code, the attempt state, the creation time, and, if Lemon Squeezy returned them, its license-instance and catalog identifiers. While an activation is unresolved, the extension can show the recovery code and only the last four license-key characters so the user can identify the attempt without displaying the full key.</p>
+    <p>After a completed activation, SpeakScribe encrypts the recoverable full license key and the minimum entitlement metadata with AES-256-GCM before placing ciphertext records in Chrome local storage. That metadata can include the Lemon Squeezy license-instance identifier, a four-character key hint, product or variant display name, catalog identifiers, activation time, and last-validation time. During deactivation or incomplete cleanup, Chrome local storage can also contain a temporary unencrypted safety marker with a random record identifier, reason, remote-confirmation flag, and update timestamp; it does not contain the license key, customer identity, or order details. When a signed activation-recovery receipt is applied, Chrome local storage also stores a bounded unencrypted replay-protection entry containing only the receipt's random nonce and expiration time. The complete receipt is not retained. Expired replay entries are removed during later recovery attempts. The non-extractable encryption key used for the encrypted records is stored separately in extension-owned IndexedDB. SpeakScribe does not persist the customer name, checkout email, or order and customer identifiers returned by Lemon Squeezy.</p>
+    <p>This encryption is defense in depth: it prevents the full key and entitlement metadata from appearing as readable Chrome-storage values, but it is not an operating-system keychain and cannot protect data on a compromised browser, browser profile, extension, or device. Device-level protection still depends on Chrome, the browser profile, and the operating system.</p>
+    <p>Per-tab widget visibility, recent transcript text, line timestamps, and active capture state may be held in Chrome session storage so extension views remain synchronized. Local Whisper model files are cached separately in the browser. When you select Copy, the requested transcript is written to the system clipboard. When you select Export, the browser writes the requested transcript file to its configured download location. Neither action occurs unless you request it.</p>
 
-      <h2>Permissions</h2>
-      <p>The extension requests the following permissions, each used solely for the stated purpose:</p>
-      <p><strong>Content scripts on webpages:</strong> To show the user-controlled dictation widget and insert or edit transcribed text in the editable field you choose. The script is declared for all webpage origins because the widget is designed to work across the web; Chrome blocks it on protected browser pages. SpeakScribe locally observes the focused editable control, limited page layout, and site-specific DOM markers needed to place the widget and find supported composers. It does not retain or transmit page content to SpeakScribe servers.</p>
-      <p><strong>activeTab:</strong> To identify the active tab after user interaction, read its address locally to explain protected-page limits, route start or stop controls to the existing SpeakScribe content script, and account for the tab's zoom when sizing the widget. The address and zoom are not retained or transmitted by SpeakScribe.</p>
-      <p><strong>storage:</strong> To save your preferences, current-session transcript state, trial state, encrypted activation-recovery and license records, short-lived recovery-replay entries, and temporary deactivation status in Chrome storage. The separate encryption key is kept through the extension's IndexedDB storage.</p>
-      <p><strong>offscreen:</strong> To run user-initiated microphone capture and the packaged Transformers.js/ONNX Local Whisper engine in an extension-owned background document. Local final audio and transcript processing remain on the device; only static model artifacts are downloaded from Hugging Face.</p>
+    <h2>Permissions</h2>
+    <p>The extension requests the following permissions, each used solely for the stated purpose:</p>
+    <p><strong>Content scripts on webpages:</strong> To show the user-controlled dictation widget and insert or edit transcribed text in the editable field you choose. The script is declared for all webpage origins because the widget is designed to work across the web; Chrome blocks it on protected browser pages. SpeakScribe locally observes the focused editable control, limited page layout, and site-specific DOM markers needed to place the widget and find supported composers. It does not retain or transmit page content to SpeakScribe servers.</p>
+    <p><strong>activeTab:</strong> To identify the active tab after user interaction, read its address locally to explain protected-page limits, route start or stop controls to the existing SpeakScribe content script, and account for the tab's zoom when sizing the widget. The address and zoom are not retained or transmitted by SpeakScribe.</p>
+    <p><strong>storage:</strong> To save your preferences, current-session transcript state, trial state, encrypted activation-recovery and license records, short-lived recovery-replay entries, and temporary deactivation status in Chrome storage. The separate encryption key is kept through the extension's IndexedDB storage.</p>
+    <p><strong>offscreen:</strong> To run user-initiated microphone capture and the packaged Transformers.js/ONNX Local Whisper engine in an extension-owned background document. Local final audio and transcript processing remain on the device; only static model artifacts are downloaded from Hugging Face.</p>
 
-      <h2>License Validation</h2>
-      <p>Paid checkout and new activation are currently paused: the current release does not send new activation requests or grant Pro access from the disabled catalog. Existing protected license records are retained only so recovery or deactivation can be completed safely. If live activation is enabled later, SpeakScribe will use Lemon Squeezy's license API over HTTPS. Activation will send the full license key and a unique instance label in the form “SpeakScribe Chrome / &lt;recovery-code&gt;”. The recovery code is generated locally for that operation and included in the label so an interrupted or otherwise ambiguous activation can be located and reconciled by authorized support tooling. Later validation or deactivation will send the full key and Lemon Squeezy-generated license-instance identifier. Lemon Squeezy and network infrastructure can therefore receive the recovery code as part of the instance label, as well as ordinary request metadata.</p>
-      <p>The extension opens encrypted activation-recovery or license records transiently in its background service worker when checking or managing access; it sends the full key only when a Lemon Squeezy request requires it. Lemon Squeezy may return license status plus product, variant, order, and customer metadata, including the customer name and checkout email. SpeakScribe will not display or persist the returned name, email, or order and customer identifiers. It retains only the encrypted recovery, license, and entitlement records and temporary deactivation status described above. Microphone audio, transcript text, and page content are not included in these requests.</p>
-      <p>If an activation response is interrupted, temporarily unavailable, unreadable, or otherwise ambiguous, SpeakScribe keeps the encrypted recovery envelope, blocks another activation, and shows the same recovery code. If Lemon Squeezy returned an instance identifier, the extension can use the saved encrypted key and exact instance identifier to retry deactivation. If no instance identifier was returned, the extension cannot safely assume that no remote instance was created; authorized support must reconcile the exact recovery-code instance label before the local journal is cleared or another activation is attempted.</p>
-      <p>For an authenticated recovery case, authorized support can use restricted operator tooling to compare the recovery code with the exact order, checkout email, masked Lemon Squeezy key representation, live catalog tuple, and license instances. The administrative credential and full key remain in the controlled operator process and are not sent to the extension or included in the recovery receipt. A signed receipt contains the recovery operation and instance binding, catalog and live/test mode, issue and expiration times, and a random nonce, but no license key, name, email, transcript, or audio. The extension verifies it against a built-in public key and the retained encrypted journal before clearing or adopting anything.</p>
+    <h2>License Validation</h2>
+    <p>Paid checkout and new activation are currently paused: the current release does not send new activation requests or grant Pro access from the disabled catalog. Existing protected license records are retained only so recovery or deactivation can be completed safely. If live activation is enabled later, SpeakScribe will use Lemon Squeezy's license API over HTTPS. Activation will send the full license key and a unique instance label in the form “SpeakScribe Chrome / &lt;recovery-code&gt;”. The recovery code is generated locally for that operation and included in the label so an interrupted or otherwise ambiguous activation can be located and reconciled by authorized support tooling. Later validation or deactivation will send the full key and Lemon Squeezy-generated license-instance identifier. Lemon Squeezy and network infrastructure can therefore receive the recovery code as part of the instance label, as well as ordinary request metadata.</p>
+    <p>The extension opens encrypted activation-recovery or license records transiently in its background service worker when checking or managing access; it sends the full key only when a Lemon Squeezy request requires it. Lemon Squeezy may return license status plus product, variant, order, and customer metadata, including the customer name and checkout email. SpeakScribe will not display or persist the returned name, email, or order and customer identifiers. It retains only the encrypted recovery, license, and entitlement records and temporary deactivation status described above. Microphone audio, transcript text, and page content are not included in these requests.</p>
+    <p>If an activation response is interrupted, temporarily unavailable, unreadable, or otherwise ambiguous, SpeakScribe keeps the encrypted recovery envelope, blocks another activation, and shows the same recovery code. If Lemon Squeezy returned an instance identifier, the extension can use the saved encrypted key and exact instance identifier to retry deactivation. If no instance identifier was returned, the extension cannot safely assume that no remote instance was created; authorized support must reconcile the exact recovery-code instance label before the local journal is cleared or another activation is attempted.</p>
+    <p>For an authenticated recovery case, authorized support can use restricted operator tooling to compare the recovery code with the exact order, checkout email, masked Lemon Squeezy key representation, live catalog tuple, and license instances. The administrative credential and full key remain in the controlled operator process and are not sent to the extension or included in the recovery receipt. A signed receipt contains the recovery operation and instance binding, catalog and live/test mode, issue and expiration times, and a random nonce, but no license key, name, email, transcript, or audio. The extension verifies it against a built-in public key and the retained encrypted journal before clearing or adopting anything.</p>
 
-      <h2>Third-Party Services</h2>
-      <p>SpeakScribe integrates with Google/Chrome speech recognition for Standard and optional Local preview, Hugging Face/Xenova for Local Whisper model downloads, and Lemon Squeezy for license validation. Their processing and retention are governed by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>, <a href="https://huggingface.co/privacy">Hugging Face Privacy Policy</a>, and <a href="https://www.lemonsqueezy.com/privacy">Lemon Squeezy Privacy Policy</a>. Dormant cloud code is designed to integrate with Deepgram only if Enhanced or Meeting launches later; those modes are disabled today. SpeakScribe does not include analytics, advertising, or tracking integrations.</p>
+    <h2>Third-Party Services</h2>
+    <p>SpeakScribe integrates with Google/Chrome speech recognition for Standard and optional Local preview, Hugging Face/Xenova for Local Whisper model downloads, and Lemon Squeezy for license validation. Their processing and retention are governed by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>, <a href="https://huggingface.co/privacy">Hugging Face Privacy Policy</a>, and <a href="https://www.lemonsqueezy.com/privacy">Lemon Squeezy Privacy Policy</a>. Dormant cloud code is designed to integrate with Deepgram only if Enhanced or Meeting launches later; those modes are disabled today. SpeakScribe does not include analytics, advertising, or tracking integrations.</p>
 
-      <h2>Chrome Web Store Limited Use</h2>
-      <p>SpeakScribe's use of information received from Google APIs adheres to the <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use">Chrome Web Store User Data Policy, including its Limited Use requirements</a>. Data is used only to provide or improve the user-facing transcription features described in this policy. Transfers occur only when necessary to provide those features, comply with law, protect against abuse, or complete a merger, acquisition, or sale of assets after obtaining the user's explicit prior consent. SpeakScribe does not sell user data, use it for advertising, profiling, or lending decisions, or allow humans to read it except after obtaining the user's separate, explicit consent to read the specific data for support, when necessary for security, when legally required, or after aggregation and anonymization for permitted internal operations.</p>
+    <h2>Chrome Web Store Limited Use</h2>
+    <p>SpeakScribe's use of information received from Google APIs adheres to the <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use">Chrome Web Store User Data Policy, including its Limited Use requirements</a>. Data is used only to provide or improve the user-facing transcription features described in this policy. Transfers occur only when necessary to provide those features, comply with law, protect against abuse, or complete a merger, acquisition, or sale of assets after obtaining the user's explicit prior consent. SpeakScribe does not sell user data, use it for advertising, profiling, or lending decisions, or allow humans to read it except after obtaining the user's separate, explicit consent to read the specific data for support, when necessary for security, when legally required, or after aggregation and anonymization for permitted internal operations.</p>
 
-      <h2>Data Retention</h2>
-      <p>Your local preferences, transcript session state, license state, and cached Local Whisper model can be removed by uninstalling the extension or clearing its Chrome extension data and cache. An activation-recovery envelope is normally removed after a safely prepared request is cancelled, Lemon Squeezy definitively rejects the request, a successful entitlement is stored and verified, or a remote rollback is confirmed. If the request outcome, rollback, or local cleanup cannot be confirmed, the encrypted recovery envelope can remain across service-worker, browser, and device restarts and access stays blocked. It can also remain temporarily after a successful activation if final local journal cleanup fails. A recovery-replay entry stops authorizing any action at its signed expiration time and is pruned during a later recovery attempt; if no later attempt occurs, the expired nonce and time can remain until extension data is cleared. The list is capped at 128 entries.</p>
-      <p>After Lemon Squeezy confirms deactivation, SpeakScribe attempts to remove the encrypted activation-recovery and license records, temporary status marker, and their IndexedDB encryption key. If remote deactivation or local cleanup cannot be confirmed, the encrypted records or key can remain, access stays denied behind the temporary safety marker, and SpeakScribe asks you to retry or contact support with the recovery code. Uninstalling the extension or clearing its local data removes the local recovery material but does not by itself prove that an ambiguous Lemon Squeezy activation failed or deactivate an instance already created there; use SpeakScribe's recovery or deactivation flow first when possible. Restricted operator working data such as a recovery code, instance identifier, receipt, or nonce is deleted after confirmation and receipt expiry, no later than 24 hours; a sanitized internal recovery record may retain only the case identifier, outcome, operator, and timestamp for up to 30 days. Email addresses, names, full or masked keys, receipts, raw provider responses, and administrative credentials are not retained in that audit record. Files you explicitly export and text you explicitly copy are controlled through your browser, operating system, and the destination where you place them. No SpeakScribe proxy connection is permitted by the current extension release. Third-party processing and retention are governed by the provider policies linked above.</p>
+    <h2>Data Retention</h2>
+    <p>Your local preferences, transcript session state, license state, and cached Local Whisper model can be removed by uninstalling the extension or clearing its Chrome extension data and cache. An activation-recovery envelope is normally removed after a safely prepared request is cancelled, Lemon Squeezy definitively rejects the request, a successful entitlement is stored and verified, or a remote rollback is confirmed. If the request outcome, rollback, or local cleanup cannot be confirmed, the encrypted recovery envelope can remain across service-worker, browser, and device restarts and access stays blocked. It can also remain temporarily after a successful activation if final local journal cleanup fails. A recovery-replay entry stops authorizing any action at its signed expiration time and is pruned during a later recovery attempt; if no later attempt occurs, the expired nonce and time can remain until extension data is cleared. The list is capped at 128 entries.</p>
+    <p>After Lemon Squeezy confirms deactivation, SpeakScribe attempts to remove the encrypted activation-recovery and license records, temporary status marker, and their IndexedDB encryption key. If remote deactivation or local cleanup cannot be confirmed, the encrypted records or key can remain, access stays denied behind the temporary safety marker, and SpeakScribe asks you to retry or contact support with the recovery code. Uninstalling the extension or clearing its local data removes the local recovery material but does not by itself prove that an ambiguous Lemon Squeezy activation failed or deactivate an instance already created there; use SpeakScribe's recovery or deactivation flow first when possible. Restricted operator working data such as a recovery code, instance identifier, receipt, or nonce is deleted after confirmation and receipt expiry, no later than 24 hours; a sanitized internal recovery record may retain only the case identifier, outcome, operator, and timestamp for up to 30 days. Email addresses, names, full or masked keys, receipts, raw provider responses, and administrative credentials are not retained in that audit record. Files you explicitly export and text you explicitly copy are controlled through your browser, operating system, and the destination where you place them. No SpeakScribe proxy connection is permitted by the current extension release. Third-party processing and retention are governed by the provider policies linked above.</p>
 
-      <h2>Children's Privacy</h2>
-      <p>SpeakScribe does not knowingly collect any information from children under 13 years of age.</p>
+    <h2>Children's Privacy</h2>
+    <p>SpeakScribe does not knowingly collect any information from children under 13 years of age.</p>
 
-      <h2>Changes to This Policy</h2>
-      <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+    <h2>Changes to This Policy</h2>
+    <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
 
-      <h2>Contact</h2>
-      <p>For privacy questions that do not contain sensitive information, use the <a href="https://caelicode.com/contact">CaeliCode contact page</a>. Review <a href="https://caelicode.com/privacy">CaeliCode's website privacy notice</a> before submitting the form. Do not include a license key, transcript, receipt, or private account information.</p>
+    <h2>Contact</h2>
+    <p>For privacy questions that do not contain sensitive information, use the <a href="https://caelicode.com/contact">CaeliCode contact page</a>. Review <a href="https://caelicode.com/privacy">CaeliCode's website privacy notice</a> before submitting the form. Do not include a license key, transcript, receipt, or private account information.</p>
     </article>
   </main>
 </body>
