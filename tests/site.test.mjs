@@ -5,6 +5,8 @@ import { test } from 'node:test';
 const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 const css = await readFile(new URL('../assets/styles.css', import.meta.url), 'utf8');
 const script = await readFile(new URL('../assets/site.js', import.meta.url), 'utf8');
+const speakScribePrivacy = await readFile(new URL('../speakscribe/privacy.html', import.meta.url), 'utf8');
+const speakScribeActivation = await readFile(new URL('../speakscribe/activate.html', import.meta.url), 'utf8');
 
 test('the platform inventory exposes all supported evidence states', () => {
   for (const label of [
@@ -55,4 +57,30 @@ test('responsive and accessibility behaviors are present', () => {
   assert.match(script, /ArrowRight/);
   assert.match(script, /aria-expanded/);
   assert.match(script, /aria-pressed/);
+});
+
+test('SpeakScribe public policy matches encrypted license recovery', () => {
+  for (const disclosure of [
+    'AES-256-GCM',
+    'encrypted activation-recovery envelope',
+    'non-extractable encryption key',
+    'SpeakScribe Chrome / &lt;recovery-code&gt;',
+    'blocks another activation',
+    'does not by itself prove that an ambiguous Lemon Squeezy activation failed'
+  ]) {
+    assert.ok(speakScribePrivacy.includes(disclosure), `missing SpeakScribe disclosure: ${disclosure}`);
+  }
+
+  assert.doesNotMatch(speakScribePrivacy, /does not encrypt the values before writing them to Chrome local storage/i);
+  assert.doesNotMatch(speakScribePrivacy, /fixed instance label/i);
+});
+
+test('SpeakScribe activation helper accepts only a bounded hash-fragment key', () => {
+  assert.match(speakScribeActivation, /<meta name="referrer" content="no-referrer">/);
+  assert.match(speakScribeActivation, /window\.location\.hash/);
+  assert.match(speakScribeActivation, /get\('license_key'\)/);
+  assert.match(speakScribeActivation, /candidate\.length >= 8 && candidate\.length <= 256/);
+  assert.doesNotMatch(speakScribeActivation, /window\.location\.search/);
+  assert.doesNotMatch(speakScribeActivation, /get\('licenseKey'\)|get\('key'\)/);
+  assert.doesNotMatch(speakScribeActivation, /localStorage|sessionStorage/);
 });
