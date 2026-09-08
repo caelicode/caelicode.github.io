@@ -378,7 +378,7 @@ body.docs-page {
 .key-panel { margin-bottom: 28px; padding: 18px; background: rgba(114, 229, 209, 0.08); border: 1px solid rgba(114, 229, 209, 0.26); border-radius: 15px; }
 .key-label { display: block; margin-bottom: 8px; color: var(--muted); font-size: 12px; font-weight: 750; }
 .key-row { display: flex; gap: 9px; }
-.key-value { flex: 1; min-width: 0; padding: 12px 14px; overflow-wrap: anywhere; background: rgba(0, 0, 0, 0.18); border: 1px solid var(--border); border-radius: 11px; color: var(--text); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
+.key-value { flex: 1; width: 100%; min-width: 0; padding: 12px 14px; background: rgba(0, 0, 0, 0.18); border: 1px solid var(--border); border-radius: 11px; color: var(--text); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
 .copy-btn { min-width: 105px; padding: 0 16px; background: var(--gradient); border: 0; border-radius: 11px; color: var(--ink); cursor: pointer; font-weight: 800; }
 .copy-btn:disabled { cursor: default; opacity: 0.55; }
 .copy-status { min-height: 20px; margin-top: 8px; color: var(--success); font-size: 12px; }
