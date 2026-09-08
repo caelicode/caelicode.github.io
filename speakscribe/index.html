@@ -14,6 +14,7 @@
   <meta name="twitter:description" content="A focused voice workspace for clean dictation across the web.">
   <meta name="twitter:image" content="https://platform.caelicode.com/speakscribe/social-preview.png">
   <title>SpeakScribe — Your voice, already formatted</title>
+  <link rel="preload" href="outfit-latin-v15.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="site-page">
@@ -29,7 +30,7 @@
       </a>
       <div class="nav-links">
         <a href="#features">Features</a>
-        <a href="#engines">Privacy</a>
+        <a href="privacy.html">Privacy</a>
         <a href="#pricing">Pricing</a>
         <a href="activate.html">Activate</a>
       </div>
@@ -38,143 +39,104 @@
   </header>
 
   <main id="main">
-    <section class="hero section-shell" id="install">
-      <div class="hero-copy">
-        <span class="eyebrow"><span class="live-dot" aria-hidden="true"></span>Built for Chrome</span>
-        <h1>Your voice,<br><span>already formatted.</span></h1>
-        <p>SpeakScribe turns natural speech into clean text inside ChatGPT, Claude, forms, notes, and other supported regular websites.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="https://chromewebstore.google.com/detail/speakscribe-live-speech-t/ipblioflcbpelcjnfenfehdplmnkfcic">Add to Chrome <span aria-hidden="true">↗</span></a>
-          <a class="button button-secondary" href="#experience">See how it works</a>
-        </div>
-        <div class="hero-proof" aria-label="Product highlights">
-          <span><strong>2</strong> available transcription modes</span>
-          <span><strong>40</strong> locale options</span>
-          <span><strong>0</strong> analytics trackers</span>
-        </div>
+    <section class="hero-editorial" id="install" aria-labelledby="hero-title">
+      <div class="hero-photo">
+        <img src="voice-workspace.webp" srcset="voice-workspace-768.webp 768w, voice-workspace.webp 1536w" sizes="(max-width: 800px) 100vw, 70vw" width="1536" height="1024" fetchpriority="high" alt="A woman sharing an idea aloud at her laptop in a sunlit workspace.">
       </div>
-
-      <div class="product-stage" aria-label="Preview of the SpeakScribe extension">
-        <div class="stage-glow" aria-hidden="true"></div>
-        <div class="product-window">
-          <div class="window-topbar">
-            <div class="window-brand"><span class="mini-mark" aria-hidden="true"></span><span>SpeakScribe</span></div>
-            <div class="window-actions" aria-hidden="true"><span></span><span></span></div>
+      <div class="section-shell hero-layout">
+        <div class="hero-copy">
+          <span class="eyebrow">A little less keyboard. A lot more you.</span>
+          <h1 id="hero-title">Big ideas.<br><strong>Less typing.</strong></h1>
+          <p>Speak naturally. Turn your thoughts into text in ChatGPT, Claude and the places you already work.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://chromewebstore.google.com/detail/speakscribe-live-speech-t/ipblioflcbpelcjnfenfehdplmnkfcic">Add to Chrome — free <span aria-hidden="true">↗</span></a>
+            <a class="hero-text-link" href="#experience">See how it works <span aria-hidden="true">↓</span></a>
           </div>
-          <div class="window-body">
-            <div class="engine-row">
-              <span class="engine-chip active"><b>Standard</b><small>Built in</small></span>
-              <span class="engine-chip"><b>Local</b><small>On device</small></span>
-              <span class="engine-chip"><b>Enhanced</b><small>Cloud paused</small></span>
-            </div>
-            <div class="capture-card">
-              <span class="capture-button" aria-hidden="true">
-                <svg viewBox="0 0 24 24" width="24" height="24"><rect x="8" y="2" width="8" height="13" rx="4" fill="currentColor"/><path d="M5 11v1a7 7 0 0 0 14 0v-1M12 19v3M9 22h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-              </span>
-              <div><small>Capture</small><strong>Ready to transcribe</strong><span>Press the mic, then speak naturally</span></div>
-            </div>
-            <div class="demo-transcript">
-              <div class="demo-heading"><span>Session transcript</span><small>Live</small></div>
-              <div class="transcript-row"><time>10:42</time><p>Turn this rough thought into a clear customer update.</p></div>
-              <div class="transcript-row current"><time>Live</time><p>The launch is on track, comma, and the final review starts tomorrow…</p></div>
-            </div>
-          </div>
+          <p class="hero-footnote">Free Standard &amp; Local modes. No card needed.<br>For supported regular websites in Chrome.</p>
         </div>
-        <div class="floating-pill pill-one"><span></span>Listening</div>
-        <div class="floating-pill pill-two">Local mode · private</div>
+        <div class="hero-note" aria-label="Illustrative dictation example">
+          <div><span class="live-dot" aria-hidden="true"></span> Standard dictation <span class="example-label">Example</span></div>
+          <p>“Let’s make room for the next big idea.”</p>
+          <span class="note-caption">Your words. Ready to use.</span>
+        </div>
       </div>
     </section>
 
-    <section class="signal-strip" aria-label="Core product benefits">
-      <div class="section-shell signal-grid">
-        <span>Live words while you speak</span>
-        <span>Clean punctuation</span>
-        <span>Works on supported regular sites</span>
-        <span>Export when you are done</span>
+    <section class="context-strip" aria-label="Supported writing contexts">
+      <div class="section-shell context-inner">
+        <p>At home in your everyday workflow.</p>
+        <ul><li>ChatGPT</li><li>Claude</li><li>Notes &amp; email</li><li>Forms</li></ul>
       </div>
     </section>
 
-    <section class="content-section section-shell" id="features">
-      <div class="section-heading split-heading">
-        <div><span class="eyebrow">A calmer way to write</span><h2>From first thought to finished text.</h2></div>
-        <p>One compact voice workspace replaces the stop-start routine of typing, correcting, copying, and reformatting.</p>
-      </div>
-      <div class="feature-grid">
-        <article class="feature-card feature-wide">
-          <span class="feature-number">01</span>
-          <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 18V9m5 9V5m5 13v-7m5 7V3"/></svg></div>
-          <h3>Live transcription that keeps up</h3>
-          <p>See words arrive while you speak, then keep the final transcript in the popup or a screen-share-safe overlay.</p>
-          <div class="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-        </article>
-        <article class="feature-card">
-          <span class="feature-number">02</span>
-          <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5h14v14H5zM8 9h8M8 12h6M8 15h4"/></svg></div>
-          <h3>Formatting by voice</h3>
-          <p>Say “comma,” “new paragraph,” or “delete last word” and stay in the flow.</p>
-        </article>
-        <article class="feature-card">
-          <span class="feature-number">03</span>
-          <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 7h10v10H7zM4 12h3m10 0h3M12 4v3m0 10v3"/></svg></div>
-          <h3>Composer docking</h3>
-          <p>A compact control settles beside ChatGPT and Claude without covering the conversation.</p>
-        </article>
-        <article class="feature-card">
-          <span class="feature-number">04</span>
-          <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9M12 3v9h9"/></svg></div>
-          <h3>Transcript export</h3>
-          <p>Copy or export the session as TXT, with additional structured formats available during the non-cloud trial.</p>
-        </article>
-        <article class="feature-card">
-          <span class="feature-number">05</span>
-          <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-4zM8 12l2.5 2.5L16 9"/></svg></div>
-          <h3>Privacy you can choose</h3>
-          <p>Use Chrome speech or keep final processing on-device. Cloud capture remains off while the live billing catalog is paused.</p>
-        </article>
+    <section class="content-section features-section" id="features">
+      <div class="section-shell">
+        <div class="section-heading split-heading">
+          <div><span class="eyebrow">Let the thought lead</span><h2>The words are yours.<br><em>The busywork isn’t.</em></h2></div>
+          <p>You have something to say. SpeakScribe helps you get it onto the page, without moving your work into another app.</p>
+        </div>
+        <div class="feature-story">
+          <figure class="writing-example">
+            <div class="sample-topline"><span>FROM VOICE TO TEXT</span><span>Example</span></div>
+            <div class="spoken-line"><span>You say</span><p>“Hi Maya comma new paragraph the first draft is ready for your review period”</p></div>
+            <div class="written-note"><span>On the page</span><p>Hi Maya,</p><p>The first draft is ready for your review.</p></div>
+            <figcaption>Dictation + spoken formatting.<br>Your words, with punctuation in place.</figcaption>
+          </figure>
+          <div class="feature-list">
+            <article><span class="feature-number">01</span><div><h3>Stay where the work is.</h3><p>Dictate into supported fields in ChatGPT, Claude, forms and notes. The compact widget fits around your page, not the other way around.</p></div></article>
+            <article><span class="feature-number">02</span><div><h3>Say it. Shape it.</h3><p>Say “comma,” “new paragraph,” or “delete last word.” Keep your train of thought while you format and edit by voice.</p></div></article>
+            <article><span class="feature-number">03</span><div><h3>Keep the useful parts.</h3><p>Follow Standard’s live words, then keep the final transcript in the popup or a separate transcript overlay. Copy a line or export TXT for free.</p></div></article>
+          </div>
+        </div>
+        <div class="feature-footnotes">
+          <p><strong>A workflow that grows with you.</strong> Explore structured exports, custom vocabulary and per-site settings in the seven-day non-cloud Pro trial.</p>
+          <p><strong>No analytics trackers.</strong> Choose Chrome speech or on-device final transcription. Know how each mode handles your audio below.</p>
+        </div>
       </div>
     </section>
 
     <section class="content-section engines-section" id="engines">
       <div class="section-shell">
-        <div class="section-heading centered-heading"><span class="eyebrow">Two available modes, one workflow</span><h2>Choose the right balance for the moment.</h2><p>Standard and Local are available now; cloud capture is clearly marked as paused.</p></div>
+        <div class="section-heading split-heading"><div><span class="eyebrow">Two available modes, one workflow</span><h2>Your voice.<br><em>Your choice.</em></h2></div><p>Quick browser dictation or on-device final processing. Start free with either, and choose what works for the moment.</p></div>
         <div class="engine-cards">
-          <article><span class="engine-index">01</span><h3>Standard</h3><p>Free Chrome speech in English (US), with no subscription or license key required. Speak for up to five minutes, then start a new session anytime.</p><span class="engine-tag">Free · Chrome speech service</span></article>
-          <article class="engine-featured"><span class="engine-index">02</span><h3>Local Whisper</h3><p>Final transcription runs in Chrome on this device after the model download.</p><span class="engine-tag">On-device final</span></article>
-          <article><span class="engine-index">03</span><h3>Enhanced</h3><p>Cloud transcription is implemented for a future, separately reviewed launch and is unavailable in this release.</p><span class="engine-tag">Cloud · Paused</span></article>
+          <article><span class="engine-tag">Ready in your browser</span><h3>Standard<span aria-hidden="true">↗</span></h3><p>Free Chrome speech in English (US), with no subscription or license key required. Speak for up to five minutes, then start a new session anytime.</p><p class="engine-detail">Live words as you speak. Audio is processed by Chrome’s server-based speech service.</p><span class="engine-bottom">Free · Restartable five-minute sessions</span></article>
+          <article class="engine-featured"><span class="engine-tag">On-device final processing</span><h3>Local Whisper<span aria-hidden="true">↗</span></h3><p>Unlimited final transcription on your device, after the model download. Free, with no subscription required.</p><p class="engine-detail">Keep Local live preview off for on-device-only audio processing. Optional live preview uses Chrome’s speech service.</p><span class="engine-bottom">Free · Unlimited Local final transcription</span></article>
         </div>
-        <p class="privacy-link">Want the details? Read the plain-language <a href="privacy.html">privacy policy</a>.</p>
+        <div class="engine-disclosure"><p><strong>Cloud · Paused</strong> Enhanced cloud transcription is implemented for a future, separately reviewed launch and is unavailable in this release. Meeting is also unavailable.</p><a class="text-link" href="privacy.html">Read the privacy policy <span aria-hidden="true">↗</span></a></div>
       </div>
     </section>
 
-    <section class="content-section section-shell" id="experience">
-      <div class="section-heading split-heading">
-        <div><span class="eyebrow">Built around your flow</span><h2>Talk. Refine. Move on.</h2></div>
-        <p>No workspace migration and no new editor to learn. SpeakScribe lives where the work already is.</p>
+    <section class="content-section experience-section" id="experience">
+      <div class="section-shell">
+        <div class="section-heading split-heading"><div><span class="eyebrow">A simple change of pace</span><h2>Speak. Review.<br><em>Carry on.</em></h2></div><p>No new editor to learn. Just a small voice workspace, right where you need it.</p></div>
+        <ol class="steps-grid">
+          <li><span aria-hidden="true">01</span><h3>Choose your mode.</h3><p>Open SpeakScribe and pick Standard or Local Whisper. Select the field you want to write in.</p></li>
+          <li><span aria-hidden="true">02</span><h3>Give it a voice.</h3><p>Start with the popup, on-page widget or keyboard shortcut. Speak naturally, then stop when you’re done.</p></li>
+          <li><span aria-hidden="true">03</span><h3>Make it yours.</h3><p>Review your words. Insert them into the active field, copy them, or export a transcript to keep.</p></li>
+        </ol>
       </div>
-      <ol class="steps-grid">
-        <li><span>1</span><div><h3>Choose a mode</h3><p>Pick fast Standard dictation or free on-device Local Whisper for the task at hand.</p></div></li>
-        <li><span>2</span><div><h3>Start speaking</h3><p>Use the popup, on-page widget, or keyboard shortcut without leaving the page.</p></div></li>
-        <li><span>3</span><div><h3>Use the result</h3><p>Insert text into the active field, copy it, or export the transcript.</p></div></li>
-      </ol>
     </section>
 
     <section class="content-section pricing-section" id="pricing">
       <div class="section-shell">
-        <div class="section-heading centered-heading"><span class="eyebrow">Simple plans</span><h2>Free for quick sessions. Pro for an unlimited workflow.</h2><p>Try non-cloud Pro tools for seven days with no card. Launch pricing is set; paid checkout, new activation, and cloud modes remain paused.</p></div>
+        <div class="section-heading split-heading"><div><span class="eyebrow">Start with your next sentence</span><h2>A little or a lot.<br><em>There’s a plan for that.</em></h2></div><p>Start free. Try non-cloud Pro tools for seven days with no card. Paid plans below show launch pricing; purchases are not open yet.</p></div>
         <div class="pricing-grid">
-          <article class="price-card">
+          <article class="price-card free-plan">
             <span class="plan-name">Free</span><div class="site-price"><strong>$0</strong><span>no subscription</span></div>
-            <p>Restartable five-minute Standard sessions in English (US), plus unlimited on-device Local Whisper final transcription.</p>
-            <a class="button button-secondary full-button" href="https://chromewebstore.google.com/detail/speakscribe-live-speech-t/ipblioflcbpelcjnfenfehdplmnkfcic">Get SpeakScribe</a>
+            <p>For the everyday thoughts worth getting down.</p>
+            <ul class="plan-features"><li>Restartable five-minute Standard sessions</li><li>Standard in English (US)</li><li>Unlimited Local Whisper final transcription</li><li>Copy &amp; TXT export</li></ul>
+            <a class="button button-primary full-button" href="https://chromewebstore.google.com/detail/speakscribe-live-speech-t/ipblioflcbpelcjnfenfehdplmnkfcic">Get SpeakScribe <span aria-hidden="true">↗</span></a>
           </article>
           <article class="price-card">
-            <span class="plan-name">Pro Monthly</span><div class="site-price"><strong>$9.99</strong><span>billed monthly · recurring</span></div>
-            <p>No Standard timer, 40 locale options, and advanced workflow, personalization, and export tools.</p>
+            <span class="plan-name">Pro Monthly</span><div class="site-price"><strong>$9.99</strong><span>/ month</span></div>
+            <p>Billed monthly · recurring. For an unlimited Standard workflow.</p>
+            <ul class="plan-features"><li>No Standard session timer</li><li><strong>40</strong> locale options</li><li>Advanced exports &amp; custom vocabulary</li><li>Per-site settings &amp; overlay timestamps</li></ul>
             <span class="button button-secondary full-button is-disabled" aria-disabled="true">Purchases paused</span>
           </article>
-          <article class="price-card recommended">
-            <span class="value-badge">Save about 25%</span><span class="plan-name">Pro Yearly</span><div class="site-price"><strong>$89.99</strong><span>billed yearly · recurring · $7.50/month</span></div>
-            <p>The same Pro access at the best annual rate: no Standard timer, 40 locale options, and advanced tools.</p>
+          <article class="price-card">
+            <span class="plan-name">Pro Yearly</span><div class="site-price"><strong>$89.99</strong><span>/ year</span></div>
+            <p>Billed yearly · recurring. Equivalent to $7.50/month.</p>
+            <ul class="plan-features"><li>Everything in Pro Monthly</li><li>No Standard session timer</li><li>40 locale options &amp; advanced tools</li><li><strong>Save about 25%</strong> on the monthly rate</li></ul>
             <span class="button button-warm full-button is-disabled" aria-disabled="true">Purchases paused</span>
           </article>
         </div>
@@ -183,22 +145,20 @@
       </div>
     </section>
 
-    <section class="final-cta section-shell">
-      <div>
-        <span class="eyebrow">Make room for the thought</span>
-        <h2>Write at the speed you speak.</h2>
-        <p>Add SpeakScribe to Chrome and start with the free Standard or Local engine.</p>
+    <section class="final-cta">
+      <div class="section-shell final-inner">
+        <div><span class="eyebrow">Make room for the thought</span><h2>Good things start<br>with <em>your voice.</em></h2><p>Add SpeakScribe to Chrome. Your next idea is a good place to start.</p></div>
+        <a class="button button-dark" href="https://chromewebstore.google.com/detail/speakscribe-live-speech-t/ipblioflcbpelcjnfenfehdplmnkfcic">Get SpeakScribe — free <span aria-hidden="true">↗</span></a>
       </div>
-      <a class="button button-primary" href="https://chromewebstore.google.com/detail/speakscribe-live-speech-t/ipblioflcbpelcjnfenfehdplmnkfcic">Get SpeakScribe <span aria-hidden="true">↗</span></a>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="section-shell footer-inner">
-      <a class="site-brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span><span>SpeakScribe</span></a>
+      <a class="site-brand" href="index.html"><span>SpeakScribe<span class="brand-period">.</span></span></a>
       <p>Voice-to-text for focused work on the web.</p>
       <div class="footer-links"><a href="activate.html">Activate</a><a href="privacy.html">Privacy</a><a href="#support">Help</a><a href="https://chromewebstore.google.com/detail/speakscribe-live-speech-t/ipblioflcbpelcjnfenfehdplmnkfcic">Chrome Web Store</a></div>
-      <small>&copy; 2026 SpeakScribe.</small>
+      <small>&copy; 2026 SpeakScribe. Built by CaeliCode.</small>
     </div>
   </footer>
 </body>
