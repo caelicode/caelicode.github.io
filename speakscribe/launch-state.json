@@ -1,5 +1,5 @@
 {
   "schemaVersion": 1,
-  "customerAccess": "paused",
-  "minimumPublicExtensionVersion": null
+  "customerAccess": "live",
+  "minimumPublicExtensionVersion": "2.13.0"
 }
