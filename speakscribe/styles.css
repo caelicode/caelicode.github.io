@@ -14,11 +14,13 @@
   --text: #20251c;
   --muted: #555e50;
   --line: #d5d9ce;
-  --font: "Outfit", "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Outfit", var(--font);
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
-body { margin: 0; background: var(--paper); color: var(--text); font: 400 18px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--paper); color: var(--text); font: 400 18px/1.6 var(--font); }
+h1, h2, h3, .site-brand { font-family: var(--font-display); }
 a { color: inherit; text-underline-offset: .2em; }
 button, input { font: inherit; }
 img { max-width: 100%; }
@@ -32,7 +34,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .site-header { background: var(--ink); color: white; border-bottom: 1px solid #35372e; }
 .site-nav { display: grid; grid-template-columns: auto 1fr auto; align-items: center; min-height: 96px; gap: 32px; }
 .site-brand { display: inline-flex; align-items: center; gap: 10px; font-size: 23px; font-weight: 600; letter-spacing: -.04em; text-decoration: none; }
-.brand-mark { display: grid; flex-shrink: 0; width: 36px; height: 40px; place-items: center; border-radius: 11px; background: linear-gradient(135deg, #72e5d1, #69b8f7 48%, #8b7cff); color: #0d2340; }
+.brand-mark { display: grid; flex-shrink: 0; width: 36px; height: 40px; place-items: center; border-radius: 10px; background: var(--yellow); color: var(--ink); }
 .brand-period { color: var(--yellow); }
 .nav-links { display: flex; justify-content: center; flex-wrap: wrap; align-items: center; gap: 8px 25px; }
 .nav-links a { display: inline-flex; align-items: center; min-height: 44px; color: #e0e1d9; font-size: 15px; text-decoration: none; }
